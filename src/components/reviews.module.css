@@ -18,7 +18,7 @@
     border-radius: 20px;
     margin: 20px 0 20px 0;
     -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;  /* Firefox o*/
   cursor:grab;
 }
 
