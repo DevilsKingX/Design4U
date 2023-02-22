@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- Encodeed by Devils King for Design4U -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (eb90963e84, 2021-10-02)"
+   sodipodi:docname="Design4U Logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.51074219"
+     inkscape:cx="293.69025"
+     inkscape:cy="348.51243"
+     inkscape:window-width="1024"
+     inkscape:window-height="709"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid940" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2548"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,17.137121,0,1 @ F,0,0,1,0,4.4342789,0,1 @ F,0,1,1,0,4.4342789,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,43.107731,0,1 @ F,0,1,1,0,4.4342789,0,1 @ F,0,1,1,0,4.4342789,0,1 @ F,0,0,1,0,96.474699,0,1 @ F,0,1,1,0,4.4342789,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;stroke:none;stroke-width:1.44161px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 27.864171,358.85785 243.90647,88.632034 c 2.51347,-3.143867 6.35821,-4.923854 10.38159,-4.806334 l 76.14949,2.224104 c 3.3217,0.09702 5.73938,3.186323 5.03521,6.433967 l -39.14785,180.552839 -82.83401,-0.099 10.92748,-51.11691 -61.4168,77.72667 128.11989,0.4494 -10.84865,50.73763 c 35.23551,-0.17942 65.47088,-25.14802 72.30976,-59.71395 L 396.64026,86.059146 c 0.80105,-3.634274 4.0467,-6.204581 7.76784,-6.15153 l 77.16552,1.100137 c 3.30863,0.04714 5.74871,3.106861 5.05854,6.343048 L 443.25608,296.13954 C 426.76051,375.5402 356.26475,432.132 275.16874,432.09317 l -89.65041,-0.043 c -3.31199,-10e-4 -5.799,-3.02586 -5.16089,-6.2758 l 9.44837,-48.12136 -152.663773,0.43123 c -9.938095,0.0281 -15.483745,-11.46413 -9.277866,-19.22646 z"
+       id="path975"
+       sodipodi:nodetypes="ccccccccccccccccsssscsc" />
+  </g>
+</svg>

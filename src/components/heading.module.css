@@ -1,0 +1,104 @@
+.Heading{
+    display: flex;
+    width: 100vw;
+    max-width: 1440px;
+    height: 100%;
+    z-index: 2;
+    align-self: center;
+    margin-bottom: 80px;
+    
+}
+
+@media only screen and (max-width: 1000px) {
+    .Heading{
+        flex-direction: column;
+    }
+    .largeText{
+        text-align: center;
+    }
+  }
+
+.largeText{
+font-size: 72px;
+font-weight: 600;
+max-width: 50%;
+align-self: center;
+margin-left: 20px;
+}
+
+.largeText span{
+    font-weight: 800;
+    background: linear-gradient(267.19deg, rgba(255, 77, 77, 0.8) 28.48%, rgba(183, 34, 34, 0.8) 75.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+}
+
+.glassInfo{
+    width: 627px;
+    height: 323px;
+    padding: 65px;
+    align-self: center;
+}
+
+.glass{
+    width: 100%;
+    height:100%;
+    background: rgba(253, 105, 105, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 37px 42px 42px 42px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgba(255, 77, 77, 0.8);
+}
+
+.glassHeading{
+font-weight: 700;
+font-size: 25px;
+line-height: 30px;
+text-decoration-line: underline;
+align-self: center;
+color: rgba(255, 255, 255, 0.6);
+margin-bottom: 10px;
+}
+
+.glassDescription{
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    max-height: 69px;
+}
+
+.glassProps1{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 20px;
+    background-color: red;
+    background-image: url('../../public/d4uSwirl.png');
+    background-size: 100px 100px;
+    z-index: -1;
+
+    top: -235px;
+    left: -20px;
+    transform: rotate(45deg);
+}
+
+
+.glassProps2{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 20px;
+    background-color: red;
+    background-image: url('../../public/d4uSwirl.png');
+    background-size: 100px 100px;
+    z-index: -1;
+
+    top: -180px;
+    left: 425px;
+    transform: rotate(45deg);
+}

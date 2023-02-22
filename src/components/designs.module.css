@@ -1,0 +1,255 @@
+
+
+.main{
+    width: 98vw;
+    max-width: 1440px;
+    align-self: center;
+    display: flex;
+    padding: 20px;
+    background-color: green;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.8);
+    border-radius: 20px;
+    margin: 20px 0 20px 0;
+    transition: all 300ms ease;
+}
+
+.scrollContainer{
+    min-width: 30%;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+
+.priorCategories{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.priorCategories div{
+    margin-top: auto;
+}
+
+.laterCategories{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.category{
+    padding: 10px;
+
+    
+}
+
+.currentCategory{
+    font-size: 20px;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.8);
+    border-radius: 15px;
+    font-weight: 700;
+    color: rgba(255, 77, 77, 0.8);
+}
+
+.designsContainer{
+    align-self: center;
+    display: flex;
+    padding: 20px;
+    margin-left: 20px;
+    width: 100%;
+    background-color: aqua;
+    justify-content: center;
+}
+
+.designComponent{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: #17141d;
+    box-shadow: -1rem 0 3em #000;
+    transition: all 300ms ease;
+}
+
+
+.designComponent:focus,.designComponent:active,.designComponent:hover{
+    transform: translate(-15px);
+}
+
+.designComponent:focus~.designComponent,.designComponent:active~.designComponent,.designComponent:hover~.designComponent{
+    transform: translateX(50px);
+}
+
+
+
+.designComponent:not(:first-child)
+{
+    margin-left: -60px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .designComponent{
+        height: 240px;
+        width: 200px;
+    }
+
+
+
+.designComponent:focus,.designComponent:active,.designComponent:hover{
+    transform: translate(-15px);
+}
+
+.designComponent:focus~.designComponent,.designComponent:active~.designComponent,.designComponent:hover~.designComponent{
+    transform: translateX(50px);
+}
+
+
+
+.designComponent:not(:first-child)
+{
+    margin-left: -60px;
+}
+
+  }
+
+
+  @media only screen and (max-width: 960px) {
+    .designComponent{
+        height: 216px;
+        width: 180px;
+    }
+
+
+
+.designComponent:focus,.designComponent:active,.designComponent:hover{
+    transform: translate(-15px);
+}
+
+.designComponent:focus~.designComponent,.designComponent:active~.designComponent,.designComponent:hover~.designComponent{
+    transform: translateX(15px);
+}
+
+
+
+.designComponent:not(:first-child)
+{
+    margin-left: -25px;
+}
+
+  }
+
+
+  @media only screen and (max-width: 850px) {
+
+    .main{
+        flex-direction: column;
+    }
+    .designsContainer{
+        margin: 0px;
+    }
+    .designComponent{
+        height: 216px;
+        width: 180px;
+    }
+
+
+
+.designComponent:focus,.designComponent:active,.designComponent:hover{
+    transform: translate(-15px);
+}
+
+.designComponent:focus~.designComponent,.designComponent:active~.designComponent,.designComponent:hover~.designComponent{
+    transform: translateX(15px);
+}
+
+
+
+.designComponent:not(:first-child)
+{
+    margin-left: -25px;
+}
+
+  }
+
+  @media only screen and (max-width: 850px) {
+
+    .main{
+        flex-direction: column;
+    }
+    .designsContainer{
+        margin: 0px;
+    }
+    .designComponent{
+        height: 192px;
+        width: 160px;
+    }
+
+
+
+.designComponent:focus,.designComponent:active,.designComponent:hover{
+    transform: translate(-15px);
+}
+
+.designComponent:focus~.designComponent,.designComponent:active~.designComponent,.designComponent:hover~.designComponent{
+    transform: translateX(15px);
+}
+
+
+
+.designComponent:not(:first-child)
+{
+    margin-left: -25px;
+}
+
+  }
+
+.designsContainerx{
+    width: 98vw;
+    max-width: 1440px;
+    align-self: center;
+    display: flex;
+    padding: 10px;
+    overflow-x: scroll;
+    
+}
+
+.designx{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 350px;
+    width: 400px;
+    min-width: 250px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #17141d;
+    box-shadow: -1rem 0 3em #000;
+    transition: all 300ms ease;
+}
+
+.designx:focus,.design:active,.design:hover{
+    transform: translate(-15px);
+}
+
+.designx:focus~.design,.design:active~.design,.design:hover~.design{
+    transform: translateX(130px);
+}
+
+
+
+.designx:not(:first-child)
+{
+    margin-left: -130px;
+}

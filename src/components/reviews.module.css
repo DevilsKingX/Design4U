@@ -1,0 +1,110 @@
+
+
+.main{
+    display: flex;
+    align-self: center;
+    width: 98vw;
+    max-width: 1440px;
+    flex-direction: column;
+}
+.reviewsContainer{
+    width: 98vw;
+    max-width: 1440px;
+    display: flex;
+    overflow: scroll;
+    align-self: center;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.8);
+    border-radius: 20px;
+    margin: 20px 0 20px 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  cursor:grab;
+}
+
+.paymentTitle{
+    align-self: center;
+    font-size: 30px;
+    font-weight: 800;
+    text-decoration: underline;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    color: rgba(228, 74, 74, 0.8);
+    background: linear-gradient(267.19deg, rgba(255, 77, 77, 0.8) 28.48%, rgba(183, 34, 34, 0.8) 75.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.reviewsContainer::-webkit-scrollbar{
+    display: none;
+}
+
+.review{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 40px 0px 40px 40px;
+    min-width: 500px;
+}
+
+.nameHandler{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.reviewTitle{
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.reviewValueArea{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.statsProfileImg{
+    border-radius: 25px;
+    align-self: center;
+    border: 1px solid rgba(228, 74, 74, 1);
+    margin-right: 10px;
+}
+
+.reviewValue{
+    font-size: 15px;
+    font-weight:  600;
+    
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.reviewDesc{
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.reviewDesc span{
+    text-align: center;
+    width: 100%;
+}
+
+.review i{
+    font-size: 25px;
+    display: flex;
+}
+
+.bottomQuote{
+    
+    display: flex;
+    justify-content: right;
+}
+
