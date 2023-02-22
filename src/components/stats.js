@@ -29,6 +29,7 @@ export default function Stats(){
     }
 
    useEffect((()=>{
+    console.log('x'+process.env.NEXT_PUBLIC_FIREBASE_API_KEY+'z');
        gettingStats();
        
 
