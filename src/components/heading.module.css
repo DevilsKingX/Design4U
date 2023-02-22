@@ -102,3 +102,77 @@ margin-bottom: 10px;
     left: 425px;
     transform: rotate(45deg);
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    .Heading{
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+    .largeText{
+        
+        text-align: center;
+        margin-left: 0px;
+        max-width: 100%;
+    }
+
+    .glassInfo{
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        padding: 80px 20px 0px 20px;
+    }
+    
+
+    .glass{
+        padding: 5px 42px 42px 42px;
+        height: auto;
+    }
+
+.glassHeading{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    }
+    
+    .glassDescription{
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(255, 255, 255, 0.6);
+        max-height: none;
+    }
+    
+    .glassProps1{
+        width: 75px;
+        height: 75px;
+        position: relative;
+        border-radius: 20px;
+        background-color: red;
+        background-image: url('../../public/d4uSwirl.png');
+        background-size: 75px 75px;
+        z-index: -1;
+    
+        top: -200px;
+        left: -9px;
+        transform: rotate(45deg);
+    }
+    
+    
+    .glassProps2{
+        width: 75px;
+        height: 75px;
+        position: relative;
+        border-radius: 20px;
+        background-color: red;
+        background-image: url('../../public/d4uSwirl.png');
+        background-size: 75px 75px;
+        z-index: -1;
+        top: -124px;
+        left: 75.41vw;
+        transform: rotate(45deg);
+    }
+  }
