@@ -1,62 +1,45 @@
 import styles from './designs.module.css'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useRef} from 'react'
 export default function Designs(){
+    const categs=['AVI','Banner','Header','Profile Picture','Logo Design','Concept Logo','Wallpaper','Jersey','Roster','Overlay'];
+    const [activeIndex, setActiveIndex] = useState(0);
+    const refs = Array(categs.length).fill(useRef(null));
 
-    const [categ,setCateg]=useState(false);
-
-    function clickButton(){
-        setCateg(!categ);
+    const handleClick = (index) => {
+        console.log('Clicked '+index)
+        setActiveIndex(index);
     }
     return(
         <>
-        {(categ)?(<div className={styles.main}>
+        <div className={styles.worksTitle}>DESIGNS SHOWCASE</div>
+        <div className={styles.main}>
             <div className={styles.scrollContainer}>
-                <div className={styles.priorCategories}><div className={styles.category}>Category1</div></div>
-                <div className={styles.currentCategory}><div className={styles.category}>Category2</div></div>
-                <div className={styles.laterCategories}>
-                    <div className={styles.category} onClick={clickButton}>Category3</div>
-                    <div className={styles.category}>Category4</div>
-                </div>
-            </div>
-            <div className={styles.designsContainer}></div>
-        </div>):(<div className={styles.main}>
-            <div className={styles.scrollContainer}>
-                <div className={styles.priorCategories}><div className={styles.category}>Category1</div><div className={styles.category}  onClick={clickButton}>Category2</div></div>
-                <div className={styles.currentCategory}><div className={styles.category}>Category3</div></div>
-                <div className={styles.laterCategories}>
-                    <div className={styles.category}>Category4</div>
-                </div>
+            {categs.map((text, index) => (
+        <div
+          key={index}
+          ref={refs[index]}
+          className={activeIndex === index ? `${styles.category} ${styles.activeCategory}` : `${styles.category}`}
+          onClick={() => handleClick(index)}
+        >
+          {text}
+        </div>
+      ))}
             </div>
             <div className={styles.designsContainer}>
-                    <div className={styles.designComponent}>
-                            <div className={styles.user}>
-                                <div className={styles.avatar}></div>
-                                <div className={styles.userInfo}>
-                                    <div className={styles.username}>Devils King</div>
-                                    <div className={styles.tag}>#4686</div>
-                                </div>
-                            </div>
-                    </div>
-                    <div className={styles.designComponent}>
-                            <div className={styles.user}>
-                                <div className={styles.avatar}></div>
-                                <div className={styles.userInfo}>
-                                    <div className={styles.username}>Devils King</div>
-                                    <div className={styles.tag}>#4686</div>
-                                </div>
-                            </div>
-                    </div>
-                    <div className={styles.designComponent}>
-                            <div className={styles.user}>
-                                <div className={styles.avatar}></div>
-                                <div className={styles.userInfo}>
-                                    <div className={styles.username}>Devils King</div>
-                                    <div className={styles.tag}>#4686</div>
-                                </div>
-                            </div>
-                    </div>
+                <div className={styles.designComponent}>
+                    <div className={styles.design}></div>
+                </div>
+                <div className={styles.designComponent}>
+                    <div className={styles.design}></div>
+                </div>
+                <div className={styles.designComponent}>
+                    <div className={styles.design}></div>
+                </div>
+                <div className={styles.designComponent}>
+                    <div className={styles.design}></div>
+                </div>
             </div>
-        </div>)}
+        </div>
         </>
         
     )

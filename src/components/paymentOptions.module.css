@@ -1,3 +1,15 @@
+@keyframes background-pan {
+
+    from{
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+    
+}
+
 .main{
     width: 98vw;
     max-width: 1440px;
@@ -16,7 +28,9 @@
     margin-top: 100px;
     margin-bottom: 30px;
     color: rgba(228, 74, 74, 0.8);
-    background: linear-gradient(267.19deg, rgba(255, 77, 77, 0.8) 28.48%, rgba(183, 34, 34, 0.8) 75.54%);
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right, rgba(183, 34, 34, 0.8),rgba(247, 22, 52, 0.8),rgba(255, 77, 77, 0.8),rgba(183, 34, 34, 0.8));
+    background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
