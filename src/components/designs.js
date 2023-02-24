@@ -6,7 +6,6 @@ export default function Designs(){
     const refs = Array(categs.length).fill(useRef(null));
 
     const handleClick = (index) => {
-        console.log('Clicked '+index)
         setActiveIndex(index);
     }
     return(

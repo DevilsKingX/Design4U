@@ -68,7 +68,11 @@
     margin: 5px 0px;
     transition: all 300ms ease;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
+
+
+
 
 .activeCategory{
     color: rgba(255, 77, 77, 0.8);

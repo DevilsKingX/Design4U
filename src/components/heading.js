@@ -16,7 +16,7 @@ export default function Heading(){
   }, []);
 
   useEffect(() => {
-    console.log(sW);
+    console.log('What are you doing in console?')
   }, [sW]);
 
   return (
