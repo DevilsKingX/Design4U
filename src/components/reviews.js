@@ -73,7 +73,7 @@ export default function Reviews(){
     maxScrollAmount.current = containerWidth;
 
     const animateScroll = () => {
-      scrollAmount.current += 0.00005 * containerWidth;
+      scrollAmount.current += 0.0001 * containerWidth;
       if (scrollAmount.current > maxScrollAmount.current) {
         scrollAmount.current = 0;
       }
