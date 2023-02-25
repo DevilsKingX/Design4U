@@ -2,9 +2,14 @@ import styles from '../components/stats.module.css'
 import Image from 'next/image'
 import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
 import {FaUserAlt} from 'react-icons/fa';
-import {app, database} from '../firebaseCongif';
+import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
 import { useState,useEffect, useRef } from 'react';
+import { async } from '@firebase/util';
+
+
 export default function Stats(){
 
     const dbInstance=collection( database, 'stats');
@@ -19,7 +24,8 @@ export default function Stats(){
       latestMember:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
       
     }
-   
+
+    
     const [stats,setStats]=useState(initialData);
     async function gettingStats()
     {
@@ -28,6 +34,7 @@ export default function Stats(){
        
     }
 
+    
    useEffect((()=>{
       gettingStats();
        

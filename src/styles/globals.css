@@ -120,3 +120,11 @@ a {
     color-scheme: dark;
   }
 }
+
+::-moz-selection { 
+  background: rgba(255, 0, 0, 0.1);
+}
+
+::selection {
+  background: rgba(255, 0, 0, 0.1);
+}
