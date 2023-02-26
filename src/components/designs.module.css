@@ -168,6 +168,12 @@
 .LineBreakerEven{
     display: none;
 }
+.LineBreakerT{
+    display: none;
+}
+.LineBreakerS{
+    display: none;
+}
 }
 
 

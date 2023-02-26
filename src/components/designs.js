@@ -2,7 +2,7 @@ import styles from './designs.module.css'
 import {useState,useEffect,useRef} from 'react'
 import Image from  'next/image'
 import {FaExpandAlt} from 'react-icons/fa';
-import {BsBehance,BsTwitter,BsGlobe2,BsInstagram} from 'react-icons/bs'
+import {BsBehance,BsTwitter,BsGlobe2,BsInstagram,BsYoutube} from 'react-icons/bs'
 import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
@@ -17,11 +17,15 @@ export default function Designs(){
 
     const dummyData={AVI:['Hello','Hello'],conceptLogo:['Hello','Hello']};
     const [designS,setDesignS]=useState(dummyData);
+    const [userDB,setUserDB]=useState({})
     async function gettingDesigns()
     {   
-        //console.log(designS)
+        console.log(userDB);
         const thefile=await getDoc(doc(database, 'stats', 'Designs'));
         await setDesignS(thefile.data())
+
+        const thefile2=await getDoc(doc(database, 'stats', 'users'));
+        await setUserDB(thefile2.data())
        
     }
 
@@ -63,19 +67,23 @@ export default function Designs(){
                                         <img className={styles.designImage} alt="Design" src={dezign['designURL']}/>
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
-                                            <img className={styles.designerAv} alt="Design" src='https://cdn.discordapp.com/avatars/753914287596240948/748db2567d63af57e1dd12f3af271ac5.webp?size=4096'/>
+                                            <img className={styles.designerAv} alt="Design" src={(userDB[dezign['userID']])?(userDB[dezign['userID']]['avatar']):('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
                                             
                                             <div className={styles.hoveredText}>
-                                            <div className={styles.designerName}>zMagnus</div>
-                                            <div className={styles.designerTag}>#6078</div>
+                                            <div className={styles.designerName}>{(userDB[dezign['userID']])?(userDB[dezign['userID']]['username'].substring(0,userDB[dezign['userID']]['username'].indexOf('#'))):('Loading...')}</div>
+                                            <div className={styles.designerTag}>{(userDB[dezign['userID']])?(userDB[dezign['userID']]['username'].substring(userDB[dezign['userID']]['username'].indexOf('#'))):('Loading...')}</div>
                                             </div>
                                         </div>
                                         <FaExpandAlt className={styles.resizeIcon}/>
+                                        {(<a href={dezign['designURL']} target="_blank" rel="noreferrer"><FaExpandAlt className={styles.resizeIcon}/></a>)}
                                         <div className={styles.socials}>
-                                            <a href="https://zmagnus.studio" target="_blank" rel="noreferrer"><BsGlobe2 className={styles.socialIcon}/></a>
-                                            <BsBehance className={styles.socialIcon}/>
-                                            <BsTwitter className={styles.socialIcon}/>
-                                            <BsInstagram className={styles.socialIcon}/>
+                                        <React.Fragment>
+                                            {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Website'])?(<a href={userDB[dezign['userID']]['socials']['Website']} target="_blank" rel="noreferrer"><BsGlobe2 className={styles.socialIcon}/></a>):('')):('')}
+                                            {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Behance'])?(<a href={userDB[dezign['userID']]['socials']['Behance']} target="_blank" rel="noreferrer"><BsBehance className={styles.socialIcon}/></a>):('')):('')}
+                                            {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Twitter'])?(<a href={userDB[dezign['userID']]['socials']['Twitter']} target="_blank" rel="noreferrer"><BsTwitter className={styles.socialIcon}/></a>):('')):('')}
+                                            {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Youtube'])?(<a href={userDB[dezign['userID']]['socials']['Youtube']} target="_blank" rel="noreferrer"><BsYoutube className={styles.socialIcon}/></a>):('')):('')}
+                                            {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Instagram'])?(<a href={userDB[dezign['userID']]['socials']['Instagram']} target="_blank" rel="noreferrer"><BsInstagram className={styles.socialIcon}/></a>):('')):('')}
+                                        </React.Fragment>
                                         </div>
                                     </div>
                                 </div>
@@ -101,33 +109,10 @@ export default function Designs(){
                             </React.Fragment>
                             ))
                         }
-                <div className={styles.designComponent}>
-                    <div className={styles.design}>
-                        <img className={styles.designImage} alt="Design" src='https://cdn.discordapp.com/attachments/1068162891448074260/1079040920109973504/image.png'/>
-                        <div className={styles.hoveredInfo}>
-                            <img className={styles.designerAv} alt="Design" src='https://cdn.discordapp.com/avatars/753914287596240948/748db2567d63af57e1dd12f3af271ac5.webp?size=4096'/>
-                            <div className={styles.hoveredText}>
-                            <div className={styles.designerName}>zMagnus</div>
-                            <div className={styles.designerTag}>#6078</div>
-                            </div>
-                        </div>
-                        <FaExpandAlt className={styles.resizeIcon}/>
-                        <div className={styles.socials}>
-                            <a href="https://zmagnus.studio" target="_blank" rel="noreferrer"><BsGlobe2 className={styles.socialIcon}/></a>
-                            <BsBehance className={styles.socialIcon}/>
-                            <BsTwitter className={styles.socialIcon}/>
-                            <BsInstagram className={styles.socialIcon}/>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.designComponent}>
-                    <div className={styles.design}></div>
-                </div>
-                <div className={`${styles.designComponent} ${styles.LineBreakerD}`}></div>
-                <div className={`${styles.designComponent} ${styles.LineBreakerS}`}></div>
-                <div className={styles.designComponent}>
-                    <div className={styles.design}></div>
-                </div>
+                
+                
+               
+                
             </div>
         </div>
         </>
