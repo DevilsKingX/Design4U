@@ -7,10 +7,10 @@
     justify-content: space-around;
     z-index: 2;
     color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 77, 77, 0.1);
+    background-color: rgba(var(--primary-theme), 0.1);
     padding: 10px;
     border-radius: 20px;
-    border: solid 1px rgba(255, 77, 77, 0.8);
+    border: solid 1px rgba(var(--primary-theme), 0.8);
     margin:10px;
     overflow: hidden;
     position: relative
@@ -19,7 +19,7 @@
 .mouseFollower{
     min-width: 100px;
     min-height: 100px;
-    background-color: rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.8);
     border-radius: 25px;
     position: absolute;
     z-index: -2;
@@ -40,7 +40,7 @@
 .statCount{
     font-size: 72px;
     font-weight: 900;
-    background: linear-gradient(267.19deg, rgba(255, 77, 77, 0.8) 28.48%, rgba(255, 84, 84, 0.8) 75.54%);
+    background: linear-gradient(267.19deg, rgba(var(--primary-theme), 0.8) 28.48%, rgba(var(--theme-lightshade), 0.8) 75.54%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -56,17 +56,17 @@
     margin-top: 10px;
     width: 100%;
     color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 77, 77, 0.2);
+    background-color: rgba(var(--primary-theme), 0.2);
     padding: 10px;
     border-radius: 10px;
-    border: solid 1px rgba(228, 74, 74, 1);
+    border: solid 1px rgba(var(--primary-underline), 1);
     display: flex;
 }
 
 .statsProfileImg{
     border-radius: 25px;
     align-self: center;
-    border: 1px solid rgba(228, 74, 74, 1);;
+    border: 1px solid rgba(var(--primary-underline), 1);;
 }
 
 .latestContainer div{
@@ -88,10 +88,10 @@
         justify-content: space-around;
         z-index: 2;
         color: rgba(255, 255, 255, 0.6);
-        background-color: rgba(255, 77, 77, 0.1);
+        background-color: rgba(var(--primary-theme), 0.1);
         padding: 10px;
         border-radius: 20px;
-        border: solid 1px rgba(255, 77, 77, 0.8);
+        border: solid 1px rgba(var(--primary-theme), 0.8);
     }
     
   }
@@ -108,10 +108,10 @@
         justify-content: space-around;
         z-index: 2;
         color: rgba(255, 255, 255, 0.6);
-        background-color: rgba(255, 77, 77, 0.1);
+        background-color: rgba(var(--primary-theme), 0.1);
         padding: 10px;
         border-radius: 20px;
-        border: solid 1px rgba(255, 77, 77, 0.8);
+        border: solid 1px rgba(var(--primary-theme), 0.8);
     }
     
   }

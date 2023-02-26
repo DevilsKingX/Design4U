@@ -64,24 +64,72 @@ export default function Reviews(){
       }    
       
       const containerRef = useRef(null);
-  const scrollAmount = useRef(0);
-  const maxScrollAmount = useRef(0);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const containerWidth = container.scrollWidth - container.clientWidth;
-    maxScrollAmount.current = containerWidth;
-
-    const animateScroll = () => {
-      scrollAmount.current += 0.0001 * containerWidth;
-      if (scrollAmount.current > maxScrollAmount.current) {
-        scrollAmount.current = 0;
-      }
-      container.scrollTo(scrollAmount.current, 0);
-      requestAnimationFrame(animateScroll);
-    };
-    requestAnimationFrame(animateScroll);
-  }, []);
+      const scrollAmount = useRef(0);
+      const maxScrollAmount = useRef(0);
+      const mouseDown = useRef(false);
+      const mouseDownX = useRef(null);
+      const mouseDownScrollAmount = useRef(null);
+      
+      useEffect(() => {
+        const container = containerRef.current;
+        const containerWidth = container.scrollWidth - container.clientWidth;
+        maxScrollAmount.current = containerWidth;
+      
+        const animateScroll = () => {
+          if (!mouseDown.current) {
+            scrollAmount.current += 0.0001 * containerWidth;
+            if (scrollAmount.current > maxScrollAmount.current) {
+              scrollAmount.current = 0;
+            }
+            container.scrollTo(scrollAmount.current, 0);
+          }
+          requestAnimationFrame(animateScroll);
+        };
+      
+        const handleMouseDown = (e) => {
+          e.preventDefault();
+          mouseDown.current = true;
+          mouseDownX.current = e.clientX || e.touches[0].clientX;
+          mouseDownScrollAmount.current = scrollAmount.current;
+        };
+      
+        const handleMouseUp = () => {
+          mouseDown.current = false;
+        };
+      
+        const handleMouseMove = (e) => {
+          if (mouseDown.current) {
+            const mouseMoveX = e.clientX || e.touches[0].clientX;
+            const deltaX = mouseMoveX - mouseDownX.current;
+            scrollAmount.current = mouseDownScrollAmount.current - deltaX;
+            if (scrollAmount.current < 0) {
+              scrollAmount.current = 0;
+            } else if (scrollAmount.current > maxScrollAmount.current) {
+              scrollAmount.current = maxScrollAmount.current;
+            }
+            container.scrollTo(scrollAmount.current, 0);
+          }
+        };
+      
+        container.addEventListener('mousedown', handleMouseDown);
+        container.addEventListener('touchstart', handleMouseDown);
+        container.addEventListener('mouseup', handleMouseUp);
+        container.addEventListener('touchend', handleMouseUp);
+        container.addEventListener('mousemove', handleMouseMove);
+        container.addEventListener('touchmove', handleMouseMove);
+      
+        requestAnimationFrame(animateScroll);
+      
+        return () => {
+          container.removeEventListener('mousedown', handleMouseDown);
+          container.removeEventListener('touchstart', handleMouseDown);
+          container.removeEventListener('mouseup', handleMouseUp);
+          container.removeEventListener('touchend', handleMouseUp);
+          container.removeEventListener('mousemove', handleMouseMove);
+          container.removeEventListener('touchmove', handleMouseMove);
+        };
+      }, []);
+      
 
   useEffect(()=>{gettingStats},stats.review)
       

@@ -40,7 +40,7 @@ margin-left: 20px;
 .largeText span{
     font-weight: 800;
     animation: background-pan 3s linear infinite;
-    background: linear-gradient(to right, rgba(255, 77, 77, 0.8),rgba(247, 22, 52, 0.8),rgba(255, 63, 89, 0.8),rgba(255, 77, 77, 0.8));
+    background: linear-gradient(to right, rgba(var(--primary-theme), 0.8),rgba(var(--theme-maincolor2), 0.8),rgba(var(--theme-maincolor3), 0.8),rgba(var(--primary-theme), 0.8));
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -63,13 +63,13 @@ margin-left: 20px;
 .glass{
     width: 100%;
     height:100%;
-    background: rgba(253, 105, 105, 0.1);
+    background: rgba(var(--glass-theme), 0.1);
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 37px 42px 42px 42px;
     display: flex;
     flex-direction: column;
-    border: solid 1px rgba(255, 77, 77, 0.8);
+    border: solid 1px rgba(var(--primary-theme), 0.8);
 }
 
 .glassHeading{
@@ -92,7 +92,7 @@ margin-bottom: 10px;
 
 .glassDescription span{
     font-weight: 600;
-    color:rgba(228, 74, 74, 0.6);
+    color:rgba(var(--primary-underline), 0.6);
 }
 
 .glassProps1{
@@ -100,7 +100,7 @@ margin-bottom: 10px;
     height: 100px;
     position: relative;
     border-radius: 20px;
-    background-color: red;
+    background-color: var(--theme-solid);
     background-image: url('../../public/d4uSwirl.png');
     background-size: 100px 100px;
     z-index: -1;
@@ -116,7 +116,7 @@ margin-bottom: 10px;
     height: 100px;
     position: relative;
     border-radius: 20px;
-    background-color: red;
+    background-color: var(--theme-solid);
     background-image: url('../../public/d4uSwirl.png');
     background-size: 100px 100px;
     z-index: -1;
@@ -174,7 +174,7 @@ margin-bottom: 10px;
         height: 75px;
         position: relative;
         border-radius: 20px;
-        background-color: red;
+        background-color: var(--theme-solid);
         background-image: url('../../public/d4uSwirl.png');
         background-size: 75px 75px;
         z-index: -1;
@@ -190,7 +190,7 @@ margin-bottom: 10px;
         height: 75px;
         position: relative;
         border-radius: 20px;
-        background-color: red;
+        background-color: var(--theme-solid);
         background-image: url('../../public/d4uSwirl.png');
         background-size: 75px 75px;
         z-index: -1;

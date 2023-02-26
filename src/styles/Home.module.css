@@ -1,7 +1,7 @@
 .backgroundCircle1{
   width: 280px;
   height: 280px;
-  background-color: #FF3636;
+  background-color: rgba(var(--circle-color), 1);
   position: absolute;
   border-radius: 140px;
   top: 250px;
@@ -11,7 +11,7 @@
 .backgroundCircle2{
   width: 144px;
   height: 144px;
-  background-color: #FF3636;
+  background-color: rgba(var(--circle-color),1);
   position: absolute;
   border-radius: 72px;
   top: 137px;
@@ -21,7 +21,7 @@
 .backgroundCircle3{
   width: 200px;
   height: 200px;
-  background-color: #FF3636;
+  background-color: rgba(var(--circle-color),1);
   position: absolute;
   border-radius: 100px;
   top: 450px;

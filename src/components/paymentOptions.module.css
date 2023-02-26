@@ -30,9 +30,9 @@
     text-decoration: underline;
     margin-top: 100px;
     margin-bottom: 30px;
-    color: rgba(228, 74, 74, 0.8);
+    color: rgba(var(--primary-underline), 0.8);
     animation: background-pan 3s linear infinite;
-    background: linear-gradient(to right, rgba(183, 34, 34, 0.8),rgba(247, 22, 52, 0.8),rgba(255, 77, 77, 0.8),rgba(183, 34, 34, 0.8));
+    background: linear-gradient(to right, rgba(var(--theme-darkshade), 0.8),rgba(var(--theme-maincolor2), 0.8),rgba(var(--primary-theme), 0.8),rgba(var(--theme-darkshade), 0.8));
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -49,7 +49,7 @@
 }
 
 .method{
-    border: 1px solid rgba(228, 74, 74, 0);
+    border: 1px solid rgba(var(--primary-underline), 0);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@
 
 
 .paymentOptions:hover .method{
-    border:1px solid rgba(228, 74, 74, 0);
+    border:1px solid rgba(var(--primary-underline), 0);
 }
 
 
@@ -90,24 +90,24 @@
 }
 
 .method:hover{
-    background-color: rgba(228, 74, 74, 0.1);
-    border: 1px solid rgba(228, 74, 74, 0.8)!important;
+    background-color: rgba(var(--primary-underline), 0.1);
+    border: 1px solid rgba(var(--primary-underline), 0.8)!important;
     border-radius: 25px;
-    filter: drop-shadow(0 0 10px rgba(228, 74, 74, 0.8));
+    filter: drop-shadow(0 0 10px rgba(var(--primary-underline), 0.8));
 }
 .method:active{
-    background-color: rgba(228, 74, 74, 0.1);
-    border: 1px solid rgba(228, 74, 74, 0.8)!important;
+    background-color: rgba(var(--primary-underline), 0.1);
+    border: 1px solid rgba(var(--primary-underline), 0.8)!important;
     border-radius: 25px;
-    filter: drop-shadow(0 0 10px rgba(228, 74, 74, 0.8));
+    filter: drop-shadow(0 0 10px rgba(var(--primary-underline), 0.8));
 }
 
 .method:hover .methodTitle{
-    color: rgba(228, 74, 74, 0.8);
+    color: rgba(var(--primary-underline), 0.8);
 }
 
 .method:hover .methodDescription{
-    color: rgba(228, 74, 74, 0.4);
+    color: rgba(var(--primary-underline), 0.4);
 }
 
 @media only screen and (max-width: 1000px) {

@@ -17,9 +17,9 @@
     text-decoration: underline;
     margin-top: 100px;
     margin-bottom: 30px;
-    color: rgba(228, 74, 74, 0.8);
+    color: rgba(var(--primary-underline), 0.8);
     animation: background-pan 3s linear infinite;
-    background: linear-gradient(to right, rgba(183, 34, 34, 0.8),rgba(247, 22, 52, 0.8),rgba(255, 77, 77, 0.8),rgba(183, 34, 34, 0.8));
+    background: linear-gradient(to right, rgba(var(--theme-darkshade), 0.8),rgba(var(--theme-maincolor2), 0.8),rgba(var(--primary-theme), 0.8),rgba(var(--theme-darkshade), 0.8));
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -32,8 +32,8 @@
     align-self: center;
     display: flex;
     padding: 20px;
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 20px;
     margin: 20px 0 20px 0;
     transition: all 300ms ease;
@@ -45,8 +45,8 @@
     flex-direction: column;
     min-width: 230px;
     overflow: scroll;
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -75,12 +75,12 @@
 
 
 .activeCategory{
-    color: rgba(255, 77, 77, 0.8);
+    color: rgba(var(--primary-theme), 0.8);
     font-weight: 600;
     font-size: 20px;
     transition: all 300ms ease;
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 10px;
     padding: 10px;
 }
@@ -112,8 +112,8 @@
 
 
 .design{
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 10px;
     width: 90%;
     aspect-ratio: 49/64;
@@ -196,8 +196,8 @@
         }
     
 .design{
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 10px;
     max-width: 254.953125px;
     width: 90%;
@@ -266,8 +266,8 @@
 
     
 .design{
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 10px;
     max-width: 254.953125px;
     width: 85%;
@@ -299,6 +299,8 @@
     display: none;
 }
     }
+
+
 .designImage{
         height: 100%;
         width: auto;
@@ -310,11 +312,28 @@
         transform: translate(-50%, 0);
         transition: all 300ms ease;
         z-index: 0;
+        filter: grayscale(100%);
 }
 
 .design:hover .designImage{
     height: 90%;
     width: auto;
+    filter: grayscale(0%);
+}
+
+.overlayDiv
+{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(var(--primary-theme), 0.2);
+    opacity: 1;
+}
+
+.design:hover .overlayDiv{
+    opacity: 0;
+    display: none;
 }
 
 .resizeIcon{
@@ -362,7 +381,7 @@
 }
 
 .socialIcon{
-    z-index: 1;
+    
     mix-blend-mode: difference;
     color: white;
     transition: all 300ms ease;
@@ -415,7 +434,7 @@
 }
 
 .designerName:hover{
-    color: rgba(247, 22, 52, 0.8);
+    color: rgba(var(--theme-maincolor2), 0.8);
     cursor: pointer;
 }
 

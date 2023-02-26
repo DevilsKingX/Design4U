@@ -28,7 +28,7 @@ margin-right: 40px;
 }
 
 .navbarPage:hover{
-    background-color: rgba(243, 70, 70, 0.219);
+    background-color: rgba(var(--theme-hover), 0.219);
     color: rgba(255, 255, 255,0.8);
 }
 .D4ULogo{
@@ -118,5 +118,5 @@ filter: drop-shadow(0px 0px 20px #FF0202);
 
 .socials i:hover{
     color: rgba(255, 255, 255,0.8);
-    background-color: rgba(243, 70, 70, 0.219);
+    background-color: rgba(var(--theme-hover), 0.219);
 }

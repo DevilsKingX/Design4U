@@ -8,7 +8,8 @@ import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
 import React from 'react';
 
-export default function Designs(){
+
+export default function Designs(props){
     
     const categs=['AVI','Concept Logo'];
     const categsID=['AVI','conceptLogo'];
@@ -18,9 +19,9 @@ export default function Designs(){
     const dummyData={AVI:['Hello','Hello'],conceptLogo:['Hello','Hello']};
     const [designS,setDesignS]=useState(dummyData);
     const [userDB,setUserDB]=useState({})
+    const [themeC,setThemeC]=useState({})
     async function gettingDesigns()
     {   
-        console.log(userDB);
         const thefile=await getDoc(doc(database, 'stats', 'Designs'));
         await setDesignS(thefile.data())
 
@@ -29,9 +30,10 @@ export default function Designs(){
        
     }
 
+    
+
     useEffect((()=>{
         gettingDesigns();
-         
       }),[])
 
     const handleClick = (index) => {
@@ -41,10 +43,12 @@ export default function Designs(){
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
       }
+
+      
     return(
         <>
-        <div className={styles.worksTitle} onClick={gettingDesigns}>DESIGNS SHOWCASE</div>
-        <div className={styles.main}>
+        <div className={`${styles.worksTitle} ${styles.Devil}`} >DESIGNS SHOWCASE</div>
+        <div className={`${styles.main} ${styles.Devil}`}>
             <div className={styles.scrollContainer}>
             {categs.map((text, index) => (
         <div
@@ -62,9 +66,10 @@ export default function Designs(){
                             categs.map((categ, index) => (
                             <React.Fragment key={categ}>
                                 {designS[categsID[index]].map((dezign, indexj) => (
-                                    <div className={styles.designComponent} key={categ+indexj}>
-                                    <div className={styles.design}>
-                                        <img className={styles.designImage} alt="Design" src={dezign['designURL']}/>
+                                    <div className={styles.designComponent} key={categ+indexj} >
+                                    <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
+                                        <div className={styles.overlayDiv}></div>
+                                        <img className={styles.designImage} alt="Design" src={dezign['designURL']} />
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
                                             <img className={styles.designerAv} alt="Design" src={(userDB[dezign['userID']])?(userDB[dezign['userID']]['avatar']):('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>

@@ -1,4 +1,35 @@
 :root {
+  /***
+  --primary-theme:77, 77, 255;
+  --circle-color:54,54,255;
+  --background-color:7,7,20;
+  --theme-solid:0,0,255;
+  --theme-darkshade:34,34,183;
+  --theme-lightshade:84,84,255;
+  --theme-maincolor2:52, 22, 247;
+  --theme-maincolor3:89, 63, 255;
+  --theme-hover:70,70,243;
+  --primary-underline:74,74,228;
+  --theme-solid:blue;
+  --glass-theme:105,105,253;*/
+
+/*255,77,77*/
+  --themeR:255;
+  --themeG:77;
+  --themeB:77;
+  --theme-solid:red;
+  --primary-theme:var(--themeR), var(--themeG), var(--themeB);
+  --circle-color:var(--themeR),calc(var(--themeG)*0.7),calc(var(--themeB)*0.7);
+  --background-color:calc(var(--themeR)*0.0784),calc(var(--themeG)*0.091),calc(var(--themeB)*0.091);
+  --theme-darkshade:calc(var(--themeR)*0.717),calc(var(--themeG)*0.441),calc(var(--themeB)*0.441);
+  --theme-lightshade:calc(var(--themeR)*1),calc(var(--themeG)*1.091),calc(var(--themeB)*1.091);
+  --theme-maincolor2:calc(var(--themeR)*0.968),calc(var(--themeG)*0.286),calc(var(--themeB)*0.675);
+  --theme-maincolor3:calc(var(--themeR)*1),calc(var(--themeG)*0.82),calc(var(--themeB)*1.156);
+  --theme-hover:calc(var(--themeR)*0.95),calc(var(--themeG)*0.91),calc(var(--themeB)*0.91);
+  --primary-underline:calc(var(--themeR)*0.894),calc(var(--themeG)*0.961),calc(var(--themeB)*0.961);
+  --glass-theme:calc(var(--themeR)*0.992),calc(var(--themeG)*1.36),calc(var(--themeB)*1.36);
+  
+
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -33,8 +64,9 @@
     #00000010,
     #00000080
 
-    
+   
   );
+
 
   --designContainerW: 0;
 
@@ -42,10 +74,13 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -91,7 +126,7 @@ body {
   min-height: 100vh;
 }
 main{
-  background-color: #140707;
+  background-color: rgba(var(--background-color),1);
   width: 100%;
   height: 100%;
   color: white;
@@ -115,6 +150,7 @@ a {
   text-decoration: none;
 }
 
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -122,9 +158,9 @@ a {
 }
 
 ::-moz-selection { 
-  background: rgba(255, 0, 0, 0.1);
+  background: rgba(var(--theme-solid), 0.1);
 }
 
 ::selection {
-  background: rgba(255, 0, 0, 0.1);
+  background: rgba(var(--theme-solid), 0.1);
 }

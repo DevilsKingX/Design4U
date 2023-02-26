@@ -23,8 +23,8 @@
     display: flex;
     overflow: scroll;
     align-self: center;
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 20px;
     margin: 20px 0 20px 0;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -39,9 +39,9 @@
     text-decoration: underline;
     margin-top: 100px;
     margin-bottom: 30px;
-    color: rgba(228, 74, 74, 0.8);
+    color: rgba(var(--primary-underline), 0.8);
     animation: background-pan 3s linear infinite;
-    background: linear-gradient(to right, rgba(183, 34, 34, 0.8),rgba(247, 22, 52, 0.8),rgba(255, 77, 77, 0.8),rgba(183, 34, 34, 0.8));
+    background: linear-gradient(to right, rgba(var(--theme-darkshade), 0.8),rgba(var(--theme-maincolor2), 0.8),rgba(var(--primary-theme), 0.8),rgba(var(--theme-darkshade), 0.8));
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -55,8 +55,8 @@
 .review{
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 77, 77, 0.1);
-    border: 1px solid rgba(255, 77, 77, 0.8);
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
     border-radius: 20px;
     padding: 20px;
     margin: 40px 0px 40px 40px;
@@ -83,7 +83,7 @@
 .statsProfileImg{
     border-radius: 25px;
     align-self: center;
-    border: 1px solid rgba(228, 74, 74, 1);
+    border: 1px solid rgba(var(--primary-underline), 1);
     margin-right: 10px;
 }
 
@@ -126,8 +126,8 @@
     .review{
         display: flex;
         flex-direction: column;
-        background-color: rgba(255, 77, 77, 0.1);
-        border: 1px solid rgba(255, 77, 77, 0.8);
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
         border-radius: 20px;
         padding: 15px;
         margin: 22.5px 0px 22.5px 30px;
@@ -154,7 +154,7 @@
     .statsProfileImg{
         border-radius: 25px;
         align-self: center;
-        border: 1px solid rgba(228, 74, 74, 1);
+        border: 1px solid rgba(var(--primary-underline), 1);
         margin-right: 5px;
     }
     
