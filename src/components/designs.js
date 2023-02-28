@@ -7,8 +7,29 @@ import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
 import React from 'react';
+import fs from 'fs'
+import path from 'path'
 
 
+export async function getStaticProps() {
+    const designsDir = path.join(process.cwd(), 'public/images/designs')
+    const folderNames = fs.readdirSync(designsDir)
+    const folderContentsMap = new Map()
+  
+    for (const folderName of folderNames) {
+      const folderPath = path.join(designsDir, folderName)
+      const fileNames = fs.readdirSync(folderPath)
+      folderContentsMap.set(folderName, fileNames)
+    }
+  
+    return {
+      props: {
+        folderContentsMap
+      }
+    }
+  }
+
+  
 export default function Designs(props){
     
     const categs=['AVI','Concept Logo'];
