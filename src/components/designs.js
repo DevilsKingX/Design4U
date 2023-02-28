@@ -7,10 +7,13 @@ import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
 import React from 'react';
-
+import Link from 'next/link'
 
 export default function Designs(props){
     
+    const designFolders = require.context('../../public/images/designs', true, /\.\/.*$/)
+    const folderNames = designFolders.keys().map(key => key.slice(2))
+
     const categs=['AVI','Concept Logo'];
     const categsID=['AVI','conceptLogo'];
     const [activeIndex, setActiveIndex] = useState(0);
@@ -48,6 +51,12 @@ export default function Designs(props){
     return(
         <>
         <div className={`${styles.worksTitle} ${styles.Devil}`} >DESIGNS SHOWCASE</div>
+        <div className={styles.navigationMenu}>
+      {folderNames.map((name, index) => (
+        <Link href={`/designs/${name}`} key={index}>{name} ↘
+        </Link>
+      ))}
+    </div>
         <div className={`${styles.main} ${styles.Devil}`}>
             <div className={styles.scrollContainer}>
             {categs.map((text, index) => (
