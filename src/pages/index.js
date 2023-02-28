@@ -36,15 +36,15 @@ export default function Home() {
   '--themeB': `${theme[2]}`,
   '--theme-solid': `${theme[3]}`,
   '--primary-theme': 'var(--themeR), var(--themeG), var(--themeB)',
-  '--circle-color': 'var(--themeR),calc(var(--themeG)*0.7),calc(var(--themeB)*0.7)',
-  '--background-color': 'calc(var(--themeR)*0.0784),calc(var(--themeG)*0.091),calc(var(--themeB)*0.091)',
-  '--theme-darkshade': 'calc(var(--themeR)*0.717),calc(var(--themeG)*0.441),calc(var(--themeB)*0.441)',
-  '--theme-lightshade': 'calc(var(--themeR)*1),calc(var(--themeG)*1.091),calc(var(--themeB)*1.091)',
-  '--theme-maincolor2': 'calc(var(--themeR)*0.968),calc(var(--themeG)*0.286),calc(var(--themeB)*0.675)',
-  '--theme-maincolor3': 'calc(var(--themeR)*1),calc(var(--themeG)*0.82),calc(var(--themeB)*1.156)',
-  '--theme-hover': 'calc(var(--themeR)*0.95),calc(var(--themeG)*0.91),calc(var(--themeB)*0.91)',
-  '--primary-underline': 'calc(var(--themeR)*0.894),calc(var(--themeG)*0.961),calc(var(--themeB)*0.961)',
-  '--glass-theme': 'calc(var(--themeR)*0.992),calc(var(--themeG)*1.36),calc(var(--themeB)*1.36)'
+  '--circle-color': 'var(--themeR)*0.7,calc(var(--themeG)*0.7),calc(var(--themeB)*0.7)',
+  '--background-color': 'calc(var(--themeR)*0.07),calc(var(--themeG)*0.07),calc(var(--themeB)*0.07)',
+  '--theme-darkshade': 'calc(var(--themeR)*0.5),calc(var(--themeG)*0.5),calc(var(--themeB)*0.5)',
+  '--theme-lightshade': 'calc(var(--themeR)*1.2),calc(var(--themeG)*1.2),calc(var(--themeB)*1.2)',
+  '--theme-maincolor2': 'calc(var(--themeR)*0.8),calc(var(--themeG)*0.8),calc(var(--themeB)*0.8)',
+  '--theme-maincolor3': 'calc(var(--themeR)*0.6),calc(var(--themeG)*0.6),calc(var(--themeB)*0.6)',
+  '--theme-hover': 'calc(var(--themeR)*0.9),calc(var(--themeG)*0.9),calc(var(--themeB)*0.9)',
+  '--primary-underline': 'calc(var(--themeR)*0.92),calc(var(--themeG)*0.92),calc(var(--themeB)*0.92)',
+  '--glass-theme': 'calc(var(--themeR)*1.3),calc(var(--themeG)*1.3),calc(var(--themeB)*1.3)'
 }}>
       
         <div className={styles.Hero}>

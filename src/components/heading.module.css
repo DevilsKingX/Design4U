@@ -101,14 +101,15 @@ margin-bottom: 10px;
     position: relative;
     border-radius: 20px;
     background-color: var(--theme-solid);
-    background-image: url('../../public/d4uSwirl.png');
     background-size: 100px 100px;
     z-index: -1;
 
     top: -235px;
     left: -20px;
     transform: rotate(45deg);
+    overflow: hidden;
 }
+
 
 
 .glassProps2{
@@ -117,24 +118,34 @@ margin-bottom: 10px;
     position: relative;
     border-radius: 20px;
     background-color: var(--theme-solid);
-    background-image: url('../../public/d4uSwirl.png');
     background-size: 100px 100px;
     z-index: -1;
 
     top: -180px;
     left: 425px;
     transform: rotate(45deg);
+    overflow: hidden;
 }
 
-.glassOverlay
-{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    opacity: 1;
+
+
+.glassImage{
+    background-image: url('../../public/d4uSwirl.png');
+    background-color: var(--theme-solid);
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
     filter: grayscale(100%);
 }
+
+  .glassOverlay{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    background-color: rgba(var(--primary-theme), 0.4);
+    z-index: 1;
+  }
 
 
 
@@ -184,9 +195,6 @@ margin-bottom: 10px;
         height: 75px;
         position: relative;
         border-radius: 20px;
-        background-color: var(--theme-solid);
-        background-image: url('../../public/d4uSwirl.png');
-        background-size: 75px 75px;
         z-index: -1;
     
         top: -200px;
@@ -200,12 +208,28 @@ margin-bottom: 10px;
         height: 75px;
         position: relative;
         border-radius: 20px;
-        background-color: var(--theme-solid);
-        background-image: url('../../public/d4uSwirl.png');
-        background-size: 75px 75px;
         z-index: -1;
         top: -124px;
         left: 75.41vw;
         transform: rotate(45deg);
     }
+
+    .glassImage{
+        background-image: url('../../public/d4uSwirl.png');
+        background-color: var(--theme-solid);
+        width: 75px;
+        height: 75px;
+        background-size: 75px 75px;
+        filter: grayscale(100%);
+    }
+    
+      .glassOverlay{
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        margin: auto;
+        background-color: rgba(var(--primary-theme), 0.4);
+        z-index: 1;
+      }
+    
   }

@@ -31,9 +31,11 @@ export default function Heading(){
               </div>
               <div className={styles.glassProps1}>
                 <div className={styles.glassOverlay}></div>
+                <div className={styles.glassImage}></div>
               </div>
               <div className={styles.glassProps2}>
-              <div className={styles.glassOverlay}></div>
+                <div className={styles.glassOverlay}></div>
+                <div className={styles.glassImage}></div>
               </div>
             </div>
           

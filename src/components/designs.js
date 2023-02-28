@@ -13,21 +13,37 @@ export default function Designs(props){
     
     const designFolders = require.context('../../public/images/designs', true, /\.\/.*$/)
     const folderNames = designFolders.keys().map(key => key.slice(2))
+    var Dejains=[];
+    folderNames.map((name,index)=>{
+        var fNcategory=name.substring(0,name.indexOf('/'));
+        var fNfile=name.substring(name.indexOf('/')+1)
+        var fNindex=fNfile.substring(0,fNfile.indexOf('['))
+        var fNuserID=fNfile.substring(fNfile.indexOf('[')+1,fNfile.indexOf(']'))
+        var fNR=fNfile.substring(fNfile.indexOf('R')+1,fNfile.indexOf('G'))
+        var fNG=fNfile.substring(fNfile.indexOf('G')+1,fNfile.indexOf('B'))
+        var fNB=fNfile.substring(fNfile.indexOf('B')+1,fNfile.indexOf('.'))
+        if(!Dejains[fNcategory]) Dejains[fNcategory]=[];
+        if(!Dejains[fNcategory][fNindex]) Dejains[fNcategory][fNindex]={};
+        Dejains[fNcategory][fNindex]['path']=name;
+        Dejains[fNcategory][fNindex]['userID']=fNuserID;
+        Dejains[fNcategory][fNindex]['theme']=[fNR,fNG,fNB];
+       })
 
     const categs=['AVI','Concept Logo'];
     const categsID=['AVI','conceptLogo'];
+    const catRef1=useRef(null);
+    const catRef2=useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const refs = Array(categs.length).fill(useRef(null));
+    
+    const refs = [useRef(null),useRef(null)]
+    const defRef=useRef(null);
 
-    const dummyData={AVI:['Hello','Hello'],conceptLogo:['Hello','Hello']};
-    const [designS,setDesignS]=useState(dummyData);
+   
     const [userDB,setUserDB]=useState({})
     const [themeC,setThemeC]=useState({})
+
     async function gettingDesigns()
     {   
-        const thefile=await getDoc(doc(database, 'stats', 'Designs'));
-        await setDesignS(thefile.data())
-
         const thefile2=await getDoc(doc(database, 'stats', 'users'));
         await setUserDB(thefile2.data())
        
@@ -39,30 +55,67 @@ export default function Designs(props){
         gettingDesigns();
       }),[])
 
+    useEffect((()=>{
+      }),[activeIndex])
+
     const handleClick = (index) => {
         setActiveIndex(index);
+        if (refs[index].current) {
+            refs[index].current.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
     }
 
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
       }
 
+
+      /*useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 1.0,
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              console.log(`Ref ${entry.target.dataset.ref} is completely in the viewport.`);
+            }
+          });
+        }, options);
+    
+        const elements = refs.map((ref) => ref.current);
+    
+        elements.forEach((element) => {
+          if (element) {
+            observer.observe(element);
+          }
+        });
+    
+        return () => {
+          elements.forEach((element) => {
+            if (element) {
+              observer.unobserve(element);
+            }
+          });
+        };
+      }, []);*/
       
     return(
         <>
-        <div className={`${styles.worksTitle} ${styles.Devil}`} >DESIGNS SHOWCASE</div>
+        <div className={`${styles.worksTitle}`}>DESIGNS SHOWCASE</div>
         <div className={styles.navigationMenu}>
-      {folderNames.map((name, index) => (
-        <Link href={`/designs/${name}`} key={index}>{name} ↘
-        </Link>
-      ))}
     </div>
-        <div className={`${styles.main} ${styles.Devil}`}>
+        <div className={`${styles.main}`}>
             <div className={styles.scrollContainer}>
             {categs.map((text, index) => (
         <div
           key={index}
-          ref={refs[index]}
+          
           className={activeIndex === index ? `${styles.category} ${styles.activeCategory}` : `${styles.category}`}
           onClick={() => handleClick(index)}
         >
@@ -74,11 +127,11 @@ export default function Designs(props){
                 {
                             categs.map((categ, index) => (
                             <React.Fragment key={categ}>
-                                {designS[categsID[index]].map((dezign, indexj) => (
+                                {Dejains[categ].map((dezign, indexj) => (
                                     <div className={styles.designComponent} key={categ+indexj} >
-                                    <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
+                                    <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])} ref={(indexj==1)?(refs[index]):null}>
                                         <div className={styles.overlayDiv}></div>
-                                        <img className={styles.designImage} alt="Design" src={dezign['designURL']} />
+                                        <img className={styles.designImage} alt="Design" src={'/images/designs/'+dezign['path']} />
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
                                             <img className={styles.designerAv} alt="Design" src={(userDB[dezign['userID']])?(userDB[dezign['userID']]['avatar']):('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
@@ -89,7 +142,7 @@ export default function Designs(props){
                                             </div>
                                         </div>
                                         <FaExpandAlt className={styles.resizeIcon}/>
-                                        {(<a href={dezign['designURL']} target="_blank" rel="noreferrer"><FaExpandAlt className={styles.resizeIcon}/></a>)}
+                                        {(<a href={'www.google.com'} target="_blank" rel="noreferrer"><FaExpandAlt className={styles.resizeIcon}/></a>)}
                                         <div className={styles.socials}>
                                         <React.Fragment>
                                             {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Website'])?(<a href={userDB[dezign['userID']]['socials']['Website']} target="_blank" rel="noreferrer"><BsGlobe2 className={styles.socialIcon}/></a>):('')):('')}
@@ -104,9 +157,9 @@ export default function Designs(props){
                                 ))}
                                 {
                                     
-                                    (designS[categsID[index]].length%4==0)?(null):((designS[categsID[index]].length%4==3)?(
+                                    (Object.keys(Dejains[categ]).length%4==0)?(null):((Object.keys(Dejains[categ]).length%4==3)?(
                                         <div className={`${styles.designComponent} ${styles.LineBreakerEven}`}></div> 
-                                    ):((designS[categsID[index]].length%4==2)?(
+                                    ):((Object.keys(Dejains[categ]).length%4==2)?(
                                         <React.Fragment>
                                         <div className={`${styles.designComponent} ${styles.LineBreakerD}`}></div> 
                                         <div className={`${styles.designComponent} ${styles.LineBreakerS}`}></div> 
