@@ -8,6 +8,7 @@ import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
 import React from 'react';
 import Link from 'next/link'
+import '../../public/images/designs/AVI/1[555423351691018251]R89G180B255.jpg'
 
 export default function Designs(props){
     
@@ -35,8 +36,8 @@ export default function Designs(props){
     const catRef2=useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
     
+
     const refs = [useRef(null),useRef(null)]
-    const defRef=useRef(null);
 
    
     const [userDB,setUserDB]=useState({})
@@ -56,18 +57,40 @@ export default function Designs(props){
       }),[])
 
     useEffect((()=>{
+      console.log(refs[0])
+      console.log(refs[1])
       }),[activeIndex])
 
-    const handleClick = (index) => {
+      const handleClick = (index) => {
         setActiveIndex(index);
         if (refs[index].current) {
-            refs[index].current.scrollIntoView({
+          const childNode = refs[index].current;
+          const parentNode = childNode.parentNode;
+      
+          const parentRect = parentNode.getBoundingClientRect();
+          const childRect = childNode.getBoundingClientRect();
+      
+          const parentScrollableWidth = parentNode.scrollWidth - parentRect.width;
+          const parentScrollableHeight = parentNode.scrollHeight - parentRect.height;
+      
+          let scrollPercent;
+          if (parentScrollableWidth > parentScrollableHeight) {
+            const childOffset = childRect.left - parentRect.left;
+            scrollPercent = (childOffset / parentScrollableWidth) * 100;
+            parentNode.scrollTo({
+              left: parentScrollableWidth * (scrollPercent / 100),
               behavior: "smooth",
-              block: "start",
+            });
+          } else {
+            const childOffset = childRect.top - parentRect.top;
+            scrollPercent = (childOffset / parentScrollableHeight) * 100;
+            parentNode.scrollTo({
+              top: parentScrollableHeight * (scrollPercent / 100),
+              behavior: "smooth",
             });
           }
-    }
-
+        }
+      }
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
       }
@@ -128,8 +151,8 @@ export default function Designs(props){
                             categs.map((categ, index) => (
                             <React.Fragment key={categ}>
                                 {Dejains[categ].map((dezign, indexj) => (
-                                    <div className={styles.designComponent} key={categ+indexj} >
-                                    <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])} ref={(indexj==1)?(refs[index]):null}>
+                                    <div className={styles.designComponent} key={categ+indexj}  ref={(indexj==1)?(refs[index]):null}>
+                                    <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
                                         <div className={styles.overlayDiv}></div>
                                         <img className={styles.designImage} alt="Design" src={'/images/designs/'+dezign['path']} />
                                         <div className={styles.categoryName}>{categ}</div>

@@ -12,6 +12,7 @@
     "@emotion/css": "^11.10.6",
     "@next/font": "13.1.6",
     "@zeit/next-css": "^1.0.1",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "firebase": "^9.17.1",
@@ -25,5 +26,4 @@
     "tilt.js": "^1.2.1",
     "vanilla-tilt": "^1.8.0"
   }
-  
 }

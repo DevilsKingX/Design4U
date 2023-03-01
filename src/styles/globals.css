@@ -164,3 +164,7 @@ a {
 ::selection {
   background: rgba(var(--theme-solid), 0.1);
 }
+
+html {
+  scroll-behavior: smooth;
+}
