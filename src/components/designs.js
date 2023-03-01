@@ -164,7 +164,7 @@ export default function Designs(props){
                                             </div>
                                         </div>
                                         <FaExpandAlt className={styles.resizeIcon}/>
-                                        {(<a href={'www.google.com'} target="_blank" rel="noreferrer"><FaExpandAlt className={styles.resizeIcon}/></a>)}
+                                        {(<a href={('images/designs/'+encodeURIComponent(dezign['path']))} target="_blank" rel="noreferrer"><FaExpandAlt className={styles.resizeIcon}/></a>)}
                                         <div className={styles.socials}>
                                         <React.Fragment>
                                             {(userDB[dezign['userID']])?((userDB[dezign['userID']]['socials']['Website'])?(<a href={userDB[dezign['userID']]['socials']['Website']} target="_blank" rel="noreferrer"><BsGlobe2 className={styles.socialIcon}/></a>):('')):('')}
