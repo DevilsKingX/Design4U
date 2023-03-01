@@ -8,7 +8,6 @@ import { collection, getDoc, doc } from 'firebase/firestore';
 import Stats from './stats';
 import React from 'react';
 import Link from 'next/link'
-import '../../public/images/designs/AVI/1[555423351691018251]R89G180B255.jpg'
 
 export default function Designs(props){
     
@@ -154,7 +153,7 @@ export default function Designs(props){
                                     <div className={styles.designComponent} key={categ+indexj}  ref={(indexj==1)?(refs[index]):null}>
                                     <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
                                         <div className={styles.overlayDiv}></div>
-                                        <img className={styles.designImage} alt="Design" src={'/images/designs/'+dezign['path']} />
+                                        <img className={styles.designImage} alt="Design" src={'/images/designs/'+encodeURIComponent(dezign['path'])} />
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
                                             <img className={styles.designerAv} alt="Design" src={(userDB[dezign['userID']])?(userDB[dezign['userID']]['avatar']):('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
