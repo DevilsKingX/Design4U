@@ -373,6 +373,7 @@
     top:5%;
     right: 1%;
     opacity: 0;
+    display: none;
 }
 
 .design:hover .socials{

@@ -138,6 +138,10 @@ margin-bottom: 10px;
     filter: grayscale(100%);
 }
 
+.glassImageRed{
+    filter: grayscale(0%);
+}
+
   .glassOverlay{
     width: 100px;
     height: 100px;
@@ -145,6 +149,10 @@ margin-bottom: 10px;
     margin: auto;
     background-color: rgba(var(--primary-theme), 0.4);
     z-index: 1;
+  }
+
+  .glassOverlayRed{
+    opacity: 0;      
   }
 
 
@@ -223,6 +231,10 @@ margin-bottom: 10px;
         filter: grayscale(100%);
     }
     
+    .glassImageRed{
+        filter: grayscale(0%);
+    }
+    
       .glassOverlay{
         width: 75px;
         height: 75px;
@@ -230,6 +242,10 @@ margin-bottom: 10px;
         margin: auto;
         background-color: rgba(var(--primary-theme), 0.4);
         z-index: 1;
+      }
+
+      .glassOverlayRed{
+        opacity: 0;      
       }
     
   }

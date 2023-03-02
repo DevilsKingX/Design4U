@@ -51,7 +51,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <Navbar/>
             <InPageNav/>
-            <Heading/>
+            <Heading themeVar={theme}/>
             <Stats/>
           </div>
           <div className={styles.heroOverlay}></div>

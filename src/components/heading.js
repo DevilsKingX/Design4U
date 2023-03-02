@@ -4,7 +4,7 @@ import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
 import Titl from 'tilt.js'
 import { useState,useEffect,useRef } from 'react'
 
-export default function Heading(){
+export default function Heading(props){
 
   const ref=useRef(null);
   const [sW,setSW]=useState(1440);
@@ -17,6 +17,7 @@ export default function Heading(){
 
   useEffect(() => {
     console.log('What are you doing in console?')
+    console.log(props.themeVar[3])
   }, [sW]);
 
   return (
@@ -30,12 +31,12 @@ export default function Heading(){
                 <div className={styles.glassDescription}>We&apos;re a <span>designing</span> server that offers multiple ways of getting <span>high-quality GFX & VFX</span> for free as well as paid!</div>
               </div>
               <div className={styles.glassProps1}>
-                <div className={styles.glassOverlay}></div>
-                <div className={styles.glassImage}></div>
+                <div className={(props.themeVar[3]!='red')?(`${styles.glassOverlay}`):(`${styles.glassOverlay} ${styles.glassOverlayRed}`)}></div>
+                <div className={(props.themeVar[3]!='red')?(`${styles.glassImage}`):(`${styles.glassImage} ${styles.glassImageRed}`)}></div>
               </div>
               <div className={styles.glassProps2}>
-                <div className={styles.glassOverlay}></div>
-                <div className={styles.glassImage}></div>
+              <div className={(props.themeVar[3]!='red')?(`${styles.glassOverlay}`):(`${styles.glassOverlay} ${styles.glassOverlayRed}`)}></div>
+                <div className={(props.themeVar[3]!='red')?(`${styles.glassImage}`):(`${styles.glassImage} ${styles.glassImageRed}`)}></div>
               </div>
             </div>
           

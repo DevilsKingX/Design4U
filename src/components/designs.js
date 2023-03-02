@@ -34,6 +34,7 @@ export default function Designs(props){
     const catRef1=useRef(null);
     const catRef2=useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [inScroll,setInScroll]=useState(true);
     
 
     const refs = [useRef(null),useRef(null)]
@@ -48,6 +49,7 @@ export default function Designs(props){
         await setUserDB(thefile2.data())
        
     }
+    
 
     
 
@@ -90,42 +92,45 @@ export default function Designs(props){
           }
         }
       }
+    
+    
+
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
       }
 
-
-      /*useEffect(() => {
-        const options = {
-          root: null,
-          rootMargin: "0px",
-          threshold: 1.0,
-        };
-    
+      useEffect(() => {
+        
         const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              console.log(`Ref ${entry.target.dataset.ref} is completely in the viewport.`);
+          const visibleEntry = entries.find((entry) => entry.isIntersecting);
+          if (visibleEntry) {
+            const index = refs.findIndex(
+              (ref) => ref.current === visibleEntry.target
+            );
+            const { top, bottom } = visibleEntry.boundingClientRect;
+            const height = bottom - top;
+            const halfway = height / 2;
+            const midpoint = top + halfway;
+            if ((midpoint >= window.innerHeight / 2) && inScroll) {
+              setActiveIndex(index);
             }
-          });
-        }, options);
-    
-        const elements = refs.map((ref) => ref.current);
-    
-        elements.forEach((element) => {
-          if (element) {
-            observer.observe(element);
           }
         });
-    
+      
+        refs.forEach((ref) => {
+          if (ref.current) {
+            observer.observe(ref.current);
+          }
+        });
+      
         return () => {
-          elements.forEach((element) => {
-            if (element) {
-              observer.unobserve(element);
-            }
-          });
+          observer.disconnect();
         };
-      }, []);*/
+      }, [refs]);
+
+      useEffect(()=>{console.log(inScroll+':Current')},[inScroll])
+
+    
       
     return(
         <>
@@ -133,7 +138,7 @@ export default function Designs(props){
         <div className={styles.navigationMenu}>
     </div>
         <div className={`${styles.main}`}>
-            <div className={styles.scrollContainer}>
+            <div className={styles.scrollContainer} onMouseEnter={()=> setInScroll(false)} onMouseLeave={()=> setInScroll(true)} onTouchStart={()=> setInScroll(false)} onTouchEnd={()=> setInScroll(true)}>
             {categs.map((text, index) => (
         <div
           key={index}
