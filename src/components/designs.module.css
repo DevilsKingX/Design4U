@@ -24,9 +24,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    z-index: 2;
 }
 
 .main{
+    z-index: 2;
     width: 98vw;
     max-width: 1440px;
     align-self: center;
@@ -318,6 +320,7 @@
 .design:hover .designImage{
     height: 90%;
     width: auto;
+    object-fit: fill;
     filter: grayscale(0%);
 }
 
@@ -337,10 +340,10 @@
 }
 
 .resizeIcon{
-    z-index: 1;
+    z-index: 3;
+    mix-blend-mode: difference;
+    color: white;
     background-color: black;
-  mix-blend-mode: difference;
-  color: white;
     position: absolute;
     top:5%;
     left: 5%;
@@ -361,7 +364,7 @@
     font-size: 20px;
     background-color: white;
     mix-blend-mode: difference;
-    color: black;
+    color: white;
     border-radius: 50%;
     opacity: 1;
 }
@@ -373,7 +376,6 @@
     top:5%;
     right: 1%;
     opacity: 0;
-    display: none;
 }
 
 .design:hover .socials{
@@ -409,11 +411,12 @@
     display: flex;
     padding: 10px;
     padding-top: 30px;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg, rgba(var(--theme-darkshade),1) 50%,rgba(var(--theme-darkshade),0.5) 75%, rgba(0,0,0,0) 100%);
     position: absolute;
     bottom: 0%;
     opacity: 0;
     transition: all 300ms ease;
+    width: 100%;
 }
 
 
@@ -430,18 +433,18 @@
 
 .designerName{
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(var(--primary-theme), 1);
     font-size: 16px;
 }
 
 .designerName:hover{
-    color: rgba(var(--theme-maincolor2), 0.8);
+    color: rgba(var(--background-color), 1);
     cursor: pointer;
 }
 
 .designerTag{
+    color: rgba(var(--primary-theme), 1);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
 }
 

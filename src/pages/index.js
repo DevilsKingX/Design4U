@@ -9,15 +9,43 @@ import InPageNav from '@/components/inpagenav'
 import PaymentOptions from '@/components/paymentOptions'
 import Reviews from '@/components/reviews'
 import Designs from '@/components/designs'
+import Price from '@/components/price'
+import Staff from '@/components/staff'
 const inter = Inter({ subsets: ['latin'] })
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import { css } from '@emotion/css';
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);
+ 
+  const mainRef = useRef(null)
+  const mouseFollowerRef = useRef(null)
 
-  useEffect(()=>{
-  },[theme])
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const mainRect = mainRef.current.getBoundingClientRect()
+      const mouseX = e.clientX - mainRect.left - (mouseFollowerRef.current.offsetWidth / 2)
+      const mouseY = e.clientY - mainRect.top - (mouseFollowerRef.current.offsetHeight / 2)
+
+      if (
+        mouseX >= 0 &&
+        mouseY >= 0 &&
+        mouseX + mouseFollowerRef.current.offsetWidth <= mainRect.width &&
+        mouseY + mouseFollowerRef.current.offsetHeight <= mainRect.height
+      ) {
+        mouseFollowerRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`
+      }
+    }
+
+    mainRef.current.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      mainRef.current.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
+
+
+
   return (
     <>
     
@@ -30,7 +58,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         
       </Head>
-      <main className='main' style={{ 
+      <main className='main' ref={mainRef} style={{ 
   '--themeR': `${theme[0]}`,
   '--themeG': `${theme[1]}`,
   '--themeB': `${theme[2]}`,
@@ -46,7 +74,7 @@ export default function Home() {
   '--primary-underline': 'calc(var(--themeR)*0.92),calc(var(--themeG)*0.92),calc(var(--themeB)*0.92)',
   '--glass-theme': 'calc(var(--themeR)*1.3),calc(var(--themeG)*1.3),calc(var(--themeB)*1.3)'
 }}>
-      
+      <div className={styles.mouseFollower} ref={mouseFollowerRef}></div>
         <div className={styles.Hero}>
           <div className={styles.heroContent}>
             <Navbar/>
@@ -64,6 +92,7 @@ export default function Home() {
         <PaymentOptions/>
         <Reviews/>
         <Designs themeVar={theme} themeFun={setTheme}/>
+        <Staff  themeVar={theme} themeFun={setTheme}/>
       </main>
       
     </>

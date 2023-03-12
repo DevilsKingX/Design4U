@@ -4,9 +4,11 @@ import Image from 'next/image'
 import {app, database} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import { useState,useEffect,useRef } from 'react';
+import AvatarFetcher from './avatarFetcher';
 
 export default function Reviews(){
-
+    const defaultAV='https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png';
+    const avTemp=[];
     const dbInstance=collection( database, 'stats');
     const initialData={
       boostCount: 20,
@@ -36,25 +38,11 @@ export default function Reviews(){
     async function gettingStats()
     {
         const thefile=await getDoc(doc(database, 'stats', 'Hero'));
-        await setStats(thefile.data())
-       
-
-       
-       const reviewDivs = stats.review.map((obj, index) => (
-        <div key={index}>
-          {Object.keys(obj).map((key) => (
-            <div key={key}>
-              {`${key}: ${obj[key]}`}
-            </div>
-          ))}
-        </div>
-      ));
-       
+        setStats(thefile.data())
+              
     }
-
-    
-    
-   useEffect((()=>{
+ 
+  useEffect((()=>{
     gettingStats();
  }),[])
 
@@ -132,6 +120,18 @@ export default function Reviews(){
       
 
   useEffect(()=>{gettingStats},stats.review)
+
+  const [avURLs,setAvURLs]=useState([]);
+ useEffect(()=>{
+    let urls=[];
+    let promises=(stats.review).map(async (rev,i)=>{
+        urls[rev['CTag']]=await AvatarFetcher(rev['CTag'],'tag');
+        urls[rev['DTag']]=await AvatarFetcher(rev['DTag'],'tag');
+    })
+    Promise.all(promises).then(()=>{setAvURLs(urls)
+  });
+
+  },[stats])
       
 return(
 
@@ -145,14 +145,14 @@ return(
             <div>
             <div className={styles.reviewTitle}>CLIENT NAME</div>
             <div className={styles.reviewValueArea}>
-                <Image className={styles.statsProfileImg} loader={myLoader} src={rev['CAv']} width={30} height={30} alt="Client"/>
+                <Image className={styles.statsProfileImg} loader={myLoader} src={avURLs[rev['CTag']] || defaultAV } width={30} height={30} alt="Client"/>
                 <div className={styles.reviewValue}>{rev['CTag']}</div>
             </div>
             </div>
             <div>
             <div className={styles.reviewTitle} style={{textAlign:'right'}}>DESIGNER NAME</div>
             <div className={styles.reviewValueArea}>
-                <Image className={styles.statsProfileImg} loader={myLoader} src={rev['DAv']} width={30} height={30} alt="Client"/>
+                <Image className={styles.statsProfileImg} loader={myLoader} src={avURLs[rev['DTag']] || defaultAV } width={30} height={30} alt="Client"/>
                 <div className={styles.reviewValue}>{rev['DTag']}</div>
             </div>
             </div>

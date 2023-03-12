@@ -44,13 +44,10 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: rgba(17, 4, 4, 0.5);
 }
 
 .Hero{
   width: 100%;
-  background: rgba(17, 4, 4, 0.5);
-  backdrop-filter: blur(100px);
   z-index: 1;
 }
 
@@ -60,5 +57,19 @@
   justify-content: space-around;
   width: 100%;
 }
+
+
+.mouseFollower{
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  background-color: rgba(var(--theme-darkshade),0.5);
+  filter: blur(100px);
+  z-index: 1;
+  border-radius: 10vw;
+  top: 50px;
+}
+
+
 
 

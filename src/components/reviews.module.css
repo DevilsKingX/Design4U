@@ -16,6 +16,7 @@
     width: 98vw;
     max-width: 1440px;
     flex-direction: column;
+    z-index: 2;
 }
 .reviewsContainer{
     width: 98vw;

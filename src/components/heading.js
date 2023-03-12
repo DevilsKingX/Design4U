@@ -17,7 +17,6 @@ export default function Heading(props){
 
   useEffect(() => {
     console.log('What are you doing in console?')
-    console.log(props.themeVar[3])
   }, [sW]);
 
   return (
