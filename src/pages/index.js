@@ -83,11 +83,6 @@ export default function Home() {
             <Stats/>
           </div>
           <div className={styles.heroOverlay}></div>
-          <div className={styles.backgroundCircles}>
-            <div className={styles.backgroundCircle1}></div>
-            <div className={styles.backgroundCircle2}></div>
-            <div className={styles.backgroundCircle3}></div>
-        </div>
         </div>
         <PaymentOptions/>
         <Reviews/>

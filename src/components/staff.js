@@ -1,6 +1,6 @@
 import styles from './staff.module.css'
 import {BsBehance,BsTwitter,BsGlobe2,BsInstagram,BsYoutube} from 'react-icons/bs'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import AvatarFetcher from './avatarFetcher';
 
 import {app, database, storage} from '../firebaseCongif';
@@ -22,9 +22,11 @@ export default function Staff(props){
             }
         }
     )
+
+    const memberRef=useRef(null);
     const [roleColor, setRoleColor]=useState({
         'OWNER': 'R255G77B77',
-        'APRICITY': 'R250G232B194',
+        'APRICITY': 'R209G77B114',
         'PANZO': 'R161G165B248',
         'DERWESH': 'R255G255B255',
         'STAFF MANAGER': 'R223G0B0',
@@ -38,7 +40,7 @@ export default function Staff(props){
 
     async function gettingDesigns()
     {   
-
+        
         const theUserFile=await getDoc(doc(database, 'stats', 'users'));
         const userData=theUserFile.data();
         setStaffInfo(userData);
@@ -77,6 +79,8 @@ export default function Staff(props){
    
      },[staffs])
 
+     useEffect(()=>{console.log(memberRef)},[])
+
     return(
         <div className={styles.main}>
             <div className={`${styles.worksTitle}`}>OUR TEAM</div>
@@ -98,7 +102,7 @@ export default function Staff(props){
                             </div>
                             
                             <div className={styles.memberName}><span className={styles.Username}>{(staffInfo[rev]['username']).substring(0,(staffInfo[rev]['username']).indexOf('#'))}</span><span className={styles.Tag}>{(staffInfo[rev]['username']).substring((staffInfo[rev]['username']).indexOf('#'))}</span></div>
-                            <div className={styles.rolesContainer} onMouseEnter={(e)=>e.target.scrollLeft=0} onMouseLeave={(e)=>e.target.scrollLeft=0}>
+                            <div className={styles.rolesContainer} ref={memberRef} onMouseEnter={(e)=>e.target.scrollLeft=0} onMouseLeave={(e)=>e.target.scrollLeft=0} onTouchStart={(e)=>e.target.scrollLeft=0} onTouchEnd={(e)=>e.target.scrollLeft=0} onBlur={(e)=>console.log('UNFUCKUSED')} onFocus={(e)=>console.log('FUCKUSED')} tabIndex={0}>
                             {
                                     (staffInfo[rev]['roles']).map((role,j)=>(
                                         <div className={styles.role} key={j} onMouseEnter={()=>setCurrentRole(role)} onMouseLeave={()=>setCurrentRole('')}>{'◈ '+role}</div>
