@@ -11,6 +11,7 @@ import Reviews from '@/components/reviews'
 import Designs from '@/components/designs'
 import Price from '@/components/price'
 import Staff from '@/components/staff'
+import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
 import { css } from '@emotion/css';
@@ -88,6 +89,7 @@ export default function Home() {
         <Reviews/>
         <Designs themeVar={theme} themeFun={setTheme}/>
         <Staff  themeVar={theme} themeFun={setTheme}/>
+        <Leaderboard/>
       </main>
       
     </>
