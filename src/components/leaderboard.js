@@ -46,7 +46,7 @@ export default function Leaderboard(){
                 return (
                     <div key={designer+i} className={styles.lbMember}>
                         <div className={styles.ranking}>#{i+1}</div>
-                        <div style={{backgroundImage:`url(${avURLs[designer]})`}} className={styles.memberImg}></div>
+                        <div style={{backgroundImage:`url(${(avURLs[designer])?(avURLs[designer]):('https://i.ibb.co/TLnDJn6/f90e3b84998242ab4f1dbb354ab989cb.png')})`}} className={styles.memberImg}></div>
                         <div className={styles.username}>{(userDB[designer]?userDB[designer]['username']:'Database Issue... Will be updated soon.')}</div>
                         <div className={styles.socials}>
                             {(userDB[designer])?(

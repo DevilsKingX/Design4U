@@ -95,6 +95,7 @@
     margin-right: 10px;
     background-position: center;
     background-size: cover;
+    border: 1px solid rgba(var(--primary-theme),1);;
 }
 
 .socials
