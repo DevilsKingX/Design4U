@@ -21,6 +21,10 @@ export default function Home() {
  
   const mainRef = useRef(null)
   const mouseFollowerRef = useRef(null)
+  const designScrollRef = useRef(null)
+  const reviewScrollRef = useRef(null)
+  const priceScrollRef = useRef(null)
+  const teamScrollRef = useRef(null)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -79,7 +83,7 @@ export default function Home() {
         <div className={styles.Hero}>
           <div className={styles.heroContent}>
             <Navbar/>
-            <InPageNav/>
+            <InPageNav designSRef={designScrollRef} reviewSRef={reviewScrollRef} priceSRef={priceScrollRef} teamSRef={teamScrollRef}/>
             <Heading themeVar={theme}/>
             <Stats/>
           </div>

@@ -12,7 +12,8 @@ return(
                 <i><BsDiscord/></i>
             </div>   
         </div>
-        <div className={styles.D4ULogo}><Image src={D4ULogo} alt='Design4U Logo' width={68} height={68}/></div>
+        
+        <div className={styles.D4ULogo}><div className={styles.logoOverlay}></div></div>
         <div className={styles.rightWing}>
             <div className={styles.joinNow}>
                 JOIN NOW
