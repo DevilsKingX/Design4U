@@ -88,6 +88,7 @@ export default function Home() {
         <PaymentOptions/>
         <Reviews/>
         <Designs themeVar={theme} themeFun={setTheme}/>
+        <Price/>
         <Staff  themeVar={theme} themeFun={setTheme}/>
         <Leaderboard/>
       </main>

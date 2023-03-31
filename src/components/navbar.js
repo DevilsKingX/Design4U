@@ -5,17 +5,17 @@ import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
 export default function Navbar(){
 return(
     <div className={styles.navbar}>
-        <div className={styles.leftWing}>
-            <div className={styles.navbarPage} >PAGE1</div>
-            <div className={styles.navbarPage}>PAGE2</div>
-            <div className={styles.navbarPage}>PAGE3</div>
-        </div>
-        <div className={styles.D4ULogo}><Image src={D4ULogo} alt='Design4U Logo' width={68} height={68}/></div>
         <div className={styles.rightWing}>
             <div className={styles.socials}>
                 <i><BsTwitter/></i>
                 <i><BsInstagram/></i>
                 <i><BsDiscord/></i>
+            </div>   
+        </div>
+        <div className={styles.D4ULogo}><Image src={D4ULogo} alt='Design4U Logo' width={68} height={68}/></div>
+        <div className={styles.rightWing}>
+            <div className={styles.joinNow}>
+                JOIN NOW
             </div>   
         </div>
     </div>

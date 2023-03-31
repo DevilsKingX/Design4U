@@ -26,9 +26,36 @@
     z-index: 2;
 }
 
+.arrowDown{
+    left: 50%;
+    top: 60%;
+    position: absolute;
+    transform: translate(-50%, 50%);
+    transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    min-width: 500px;
+    pointer-events: none;
+}
+
+.arrowUp{
+    left: 50%;
+    top: 8.5%;
+    transform: translate(-50%, 50%) rotate(180deg);
+    position: absolute;
+    transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    min-width: 500px;
+    pointer-events: none;
+}
+
 .priceContainer{
     z-index: 2;
-    width: 73vw;
+    width:98vw;
+    max-width: 73vw;
     max-width: 1080px;
     align-self: center;
     display: flex;
@@ -39,7 +66,11 @@
     border-radius: 20px;
     margin: 20px 0 20px 0;
     transition: all 300ms ease;
+    position: relative;
+    overflow-y: hidden;
 }
+
+
 
 .Navigator{
     display: flex;
@@ -62,6 +93,7 @@
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(var(--primary-theme), 0); 
     transition: all 300ms ease;
+    margin-left: 5px;
 }
 .navigatorElement:hover{
     color: rgba(255, 255, 255, 0.8);
@@ -83,6 +115,20 @@
     font-weight: 600;
 }
 
+.priceBodies{
+    display:flex;
+    transition: all 600ms smooth;
+}
+
+.pbody{
+    overflow: hidden;
+    transition: all 600ms ease;
+}
+
+.pbody div{
+    white-space: nowrap;
+}
+
 .bodyHeading{
     padding: 10px;
     width: 100%;
@@ -98,15 +144,18 @@
 .rightHeading{
     width: 34%;
     text-align: center;
+    overflow-x: hidden;
 }
 .leftHeading{
     width: 66%;
     display: flex;
+    overflow-x: hidden;
 }
 
 .leftHeadingElement{
     width: 100%;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .bodyContainer{
@@ -114,7 +163,15 @@
     height: 400px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+.bodyContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
 
 .FX{
     width: 100%;
@@ -147,6 +204,7 @@
   border: 1px solid rgba(var(--primary-theme), 0.8);
   border-radius: 20px;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .rightStatus{
@@ -159,6 +217,17 @@
     align-items: center;
     justify-items: center;
 }
+@keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-35%);
+    }
+    100% {
+        transform: translateX(0);
+      }
+  }
 
 .fxName{
     height: 50%;
@@ -166,8 +235,21 @@
     align-self: center;
     font-weight: 600;
     margin-left: 10px;
+    overflow: hidden;
 }
 
+.fxName span{
+    display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 700px) {
+.longfx span{
+    animation: slide-left 4s linear infinite;
+}
+}
 .priceSections{
     display: flex;
     justify-content: space-evenly;
@@ -188,10 +270,63 @@
   justify-content: center;
   color: rgba(var(--primary-theme), 0.8);
   font-weight: 800;
+  overflow-x: hidden;
+}
+
+.priceElement span{
+    min-width: 20%;
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
 }
 
 .elementIcon{
     font-size: 18px;
     margin-right: 5px;
     margin-top: 1px;
+}
+
+@media only screen and (max-width: 700px) {
+    .mhide{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 474px) {
+    .priceContainer{
+        overflow-x: hidden;
+    }
+    .longfx span{
+        animation: none;
+    }
+
+    .FX{
+        flex-direction: column;
+    }
+
+    .rightArea{
+        width: 100%;
+        height: 100%;
+    }
+
+    .rightFx{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .priceSections{
+        width: 150%;
+    }
+    .bodyHeading{
+        display: none;
+    }
+
+    .arrowUp{
+        top:-3.25%;
+    }
+
+    .arrowDown{
+        top: 55%;
+    }
+
 }

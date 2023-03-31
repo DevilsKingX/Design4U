@@ -1,0 +1,44 @@
+/*Creating animation to move div up and down back to initial position*/
+@keyframes arrowMove {
+    0%{
+        transform: translate(-50%, -50%) translateY(140%);
+    }
+    50%{
+        transform: translate(-50%, -50%) translateY(110%);
+    }
+    100%{
+        transform: translate(-50%, -50%) translateY(140%);
+    }
+    
+}
+.scrollArrow{
+    overflow-y: hidden;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.arrow{
+    color: rgba(var(--primary-theme), 0.6);
+    font-size: 40px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    animation: arrowMove 2s ease-in-out infinite;
+}
+
+.arrowOverlay{
+    position:relative;
+    border-radius: 40%;
+    filter: blur(20px);
+    width: 360px;
+    height: 160px;
+    top: 50%;
+    background-color: rgba(var(--background-color), 0.7);
+}
