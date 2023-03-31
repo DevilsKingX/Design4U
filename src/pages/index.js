@@ -49,8 +49,16 @@ export default function Home() {
     }
   }, [])
 
-
-
+  function scrollTo(refX){
+    if(refX=='designs')
+    designScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    else if(refX=='reviews')
+    reviewScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    else if(refX=='price')
+    priceScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    else if(refX=='team')
+    teamScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
   return (
     <>
     
@@ -83,17 +91,17 @@ export default function Home() {
         <div className={styles.Hero}>
           <div className={styles.heroContent}>
             <Navbar/>
-            <InPageNav designSRef={designScrollRef} reviewSRef={reviewScrollRef} priceSRef={priceScrollRef} teamSRef={teamScrollRef}/>
+            <InPageNav scrollTo={scrollTo}/>
             <Heading themeVar={theme}/>
             <Stats/>
           </div>
           <div className={styles.heroOverlay}></div>
         </div>
         <PaymentOptions/>
-        <Reviews/>
-        <Designs themeVar={theme} themeFun={setTheme}/>
-        <Price/>
-        <Staff  themeVar={theme} themeFun={setTheme}/>
+        <div className={styles.closureDiv} ref={reviewScrollRef}><Reviews/></div>
+        <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme}/></div>
+        <div className={styles.closureDiv} ref={priceScrollRef}><Price/></div>
+        <div className={styles.closureDiv} ref={teamScrollRef}><Staff  themeVar={theme} themeFun={setTheme}/></div>
         <Leaderboard/>
       </main>
       
