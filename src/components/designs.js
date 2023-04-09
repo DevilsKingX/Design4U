@@ -119,13 +119,13 @@ export default function Designs(props){
         Dejains[fNcategory][fNindex]['theme']=[fNR,fNG,fNB];
        })
 
-    const categs=['AVI','Concept Logo','Banner','Header'];
-    const styleID=['','','long','long'];
+    const categs=['AVI','Concept Logo','Banner','Header','Wallpaper'];
+    const styleID=['','','long','long','long'];
     const [activeIndex, setActiveIndex] = useState(0);
     const [inScroll,setInScroll]=useState(true);
     
     
-    const refs = [useRef(null),useRef(null),useRef(null),useRef(null)]
+    const refs = [useRef(null),useRef(null),useRef(null),useRef(null),useRef(null)]
 
    
     const [userDB,setUserDB]=useState({})
