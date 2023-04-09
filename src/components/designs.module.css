@@ -324,6 +324,47 @@
     filter: grayscale(0%);
 }
 
+
+.designImageLong{
+    max-width: 120%;
+    object-fit: cover;
+    align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 300ms ease;
+    z-index: 0;
+    filter: grayscale(100%);
+}
+
+.design:hover .designImageLong{
+    max-width: 100%;
+    object-fit: fill;
+    filter: grayscale(0%);
+}
+
+.designImageBackdrop{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    align-self: center;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: all 300ms ease;
+    z-index: 0;
+    filter: grayscale(100%) blur(5px);
+}
+.design:hover .designImageBackdrop{
+    height: 90%;
+    width: auto;
+    object-fit: fill;
+    filter: grayscale(0%) blur(10px);
+}
+
+
 .overlayDiv
 {
     z-index: 1;

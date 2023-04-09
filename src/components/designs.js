@@ -9,13 +9,102 @@ import Stats from './stats';
 import React from 'react';
 import Link from 'next/link'
 import AvatarFetcher from './avatarFetcher';
+const getPixels = require('get-pixels');
+const ndarray = require('ndarray');
+const axios = require('axios');
+const getImageColorPalette = async (imageUrl, numColors, colorThreshold) => {
+  console.log('Getting color palette for ' + imageUrl)
+  // Load the image pixels using get-pixels library
+  return new Promise((resolve, reject) => {
+    getPixels(imageUrl, (err, pixels) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      // Convert the image pixels to ndarray
+      const image = ndarray(pixels.data, [pixels.shape[0], pixels.shape[1], 4]);
+
+      // Extract the color palette by iterating through the pixels
+      const colorPalette = new Set();
+      for (let y = 0; y < image.shape[0]; y++) {
+        for (let x = 0; x < image.shape[1]; x++) {
+          const r = image.get(y, x, 0);
+          const g = image.get(y, x, 1);
+          const b = image.get(y, x, 2);
+
+          // Convert RGB values to hex code
+          const hexCode = rgbToHex(r, g, b);
+
+          // Check if the color is different enough from existing colors in the palette
+          let isDifferentEnough = true;
+          for (const color of colorPalette) {
+            if (getColorDifference(hexCode, color) < colorThreshold) {
+              isDifferentEnough = false;
+              break;
+            }
+          }
+
+          // Add the color to the palette if it's different enough
+          if (isDifferentEnough) {
+            colorPalette.add(hexCode);
+          }
+        }
+      }
+
+      // Convert the Set to an array and limit the number of colors
+      const colorPaletteArray = Array.from(colorPalette).slice(0, numColors);
+
+      resolve(hexToRgb(colorPaletteArray[1] || colorPaletteArray[0]));
+    });
+  });
+};
+
+// Function to calculate color difference using Euclidean distance
+const getColorDifference = (color1, color2) => {
+  const r1 = parseInt(color1.substring(1, 3), 16);
+  const g1 = parseInt(color1.substring(3, 5), 16);
+  const b1 = parseInt(color1.substring(5, 7), 16);
+
+  const r2 = parseInt(color2.substring(1, 3), 16);
+  const g2 = parseInt(color2.substring(3, 5), 16);
+  const b2 = parseInt(color2.substring(5, 7), 16);
+
+  const dr = r1 - r2;
+  const dg = g1 - g2;
+  const db = b1 - b2;
+
+  return Math.sqrt(dr * dr + dg * dg + db * db);
+};
+
+// Function to convert RGB values to hex code
+const rgbToHex = (r, g, b) => {
+  return  "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+};
+
+function hexToRgb(hex) {
+  // Remove "#" prefix if present
+  hex = hex.replace("#", "");
+
+  // Split the hexadecimal color code into RGB components
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  // Return an array of RGB values
+  return [r, g, b];
+}
+
 
 export default function Designs(props){
     
     const designFolders = require.context('../../public/images/designs', true, /\.\/.*$/)
     const folderNames = designFolders.keys().map(key => key.slice(2))
     var Dejains=[];
-    folderNames.map((name,index)=>{
+    folderNames.map(async (name,index)=>{
+
+
+      //const colors = await getImageColorPalette(fileBuffer, 10, 200);
         var fNcategory=name.substring(0,name.indexOf('/'));
         var fNfile=name.substring(name.indexOf('/')+1)
         var fNindex=fNfile.substring(0,fNfile.indexOf('['))
@@ -30,15 +119,13 @@ export default function Designs(props){
         Dejains[fNcategory][fNindex]['theme']=[fNR,fNG,fNB];
        })
 
-    const categs=['AVI','Concept Logo'];
-    const categsID=['AVI','conceptLogo'];
-    const catRef1=useRef(null);
-    const catRef2=useRef(null);
+    const categs=['AVI','Concept Logo','Banner','Header'];
+    const styleID=['','','long','long'];
     const [activeIndex, setActiveIndex] = useState(0);
     const [inScroll,setInScroll]=useState(true);
     
-
-    const refs = [useRef(null),useRef(null)]
+    
+    const refs = [useRef(null),useRef(null),useRef(null),useRef(null)]
 
    
     const [userDB,setUserDB]=useState({})
@@ -56,12 +143,16 @@ export default function Designs(props){
 
     useEffect((()=>{
         gettingDesigns();
+        getImageColorPalette('https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/1200px-Black_colour.jpg',10,200).then((color)=>{
+            console.log(color+'x')
+        })
       }),[])
 
     useEffect((()=>{
       }),[activeIndex])
 
       const handleClick = (index) => {
+        if(activeIndex==index) return
         setActiveIndex(index);
         if (refs[index].current) {
           const childNode = refs[index].current;
@@ -69,7 +160,7 @@ export default function Designs(props){
       
           const parentRect = parentNode.getBoundingClientRect();
           const childRect = childNode.getBoundingClientRect();
-      
+
           const parentScrollableWidth = parentNode.scrollWidth - parentRect.width;
           const parentScrollableHeight = parentNode.scrollHeight - parentRect.height;
       
@@ -81,6 +172,7 @@ export default function Designs(props){
               left: parentScrollableWidth * (scrollPercent / 100),
               behavior: "smooth",
             });
+            
           } else {
             const childOffset = childRect.top - parentRect.top;
             scrollPercent = (childOffset / parentScrollableHeight) * 100;
@@ -88,6 +180,7 @@ export default function Designs(props){
               top: parentScrollableHeight * (scrollPercent / 100),
               behavior: "smooth",
             });
+            console.log('Scrolling to '+index)
           }
         }
       }
@@ -163,10 +256,13 @@ export default function Designs(props){
                             categs.map((categ, index) => (
                             <React.Fragment key={categ}>
                                 {Dejains[categ].map((dezign, indexj) => (
+                                  
                                     <div className={styles.designComponent} key={categ+indexj}  ref={(indexj==1)?(refs[index]):null}>
+                                      <div>{console.log(index==3?indexj:'NONE')}</div>
                                     <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
                                         <div className={styles.overlayDiv}></div>
-                                        <img className={styles.designImage} alt="Design" src={('images/designs/'+encodeURIComponent(dezign['path']))} />
+                                        <img className={styles.designImageBackdrop} alt="Design" src={('images/designs/'+encodeURIComponent(dezign['path']))} />
+                                        <img className={styleID[index]!='long'?styles.designImage:styles.designImageLong} alt="Design" src={('images/designs/'+encodeURIComponent(dezign['path']))} />
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
                                             <img className={styles.designerAv} alt="Design" src={avURLs[dezign['userID']]||('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
@@ -222,3 +318,4 @@ export default function Designs(props){
         
     )
 }
+
