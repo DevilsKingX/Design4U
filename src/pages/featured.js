@@ -10,7 +10,7 @@ export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
     const isHomepage = router.asPath === '/';
-    const [mainBanner,setMainBanner]=useState('https://media.discordapp.net/attachments/880157787513053214/881104508422328370/D4UbannerSafeArea.png-3_polarr.png');
+    const [mainBanner,setMainBanner]=useState('https://astony.net/collections/astony-dot');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
@@ -155,7 +155,7 @@ export default function Featured() {
                                 </div>
                                 </div>
                                 <div className={styles.featDescriptions}>
-                                <div className={styles.featDescription}>{liner(item.description)}</div>
+                                <div className={styles.featDescription}>{console.log(liner(item.description))}</div>
                                 <div className={styles.featLongDescription}>{liner(item.longDescription)}</div>
                                 </div>
                                 </div>
@@ -188,7 +188,7 @@ export default function Featured() {
 }
 
 function liner(str,current=0){
-    str=str.replace('\n','\n%^&')
+    str=str.replaceAll('\n','\n%^&')
     let arr=str.split('\n');
     if(current>=arr.length) return '';
     

@@ -14,7 +14,6 @@ import Staff from '@/components/staff'
 import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
-import { css } from '@emotion/css';
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -53,14 +52,16 @@ export default function Home() {
   }, [])
 
   function scrollTo(refX){
+    console.log(teamScrollRef.current)
+    
     if(refX=='designs')
-    designScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({top: designScrollRef.current.offsetTop,behavior: 'smooth'});
     else if(refX=='reviews')
-    reviewScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({top: reviewScrollRef.current.offsetTop,behavior: 'smooth'});
     else if(refX=='price')
-    priceScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({top: priceScrollRef.current.offsetTop,behavior: 'smooth'});
     else if(refX=='team')
-    teamScrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({top: teamScrollRef.current.offsetTop,behavior: 'smooth'});
   }
   return (
     <>
