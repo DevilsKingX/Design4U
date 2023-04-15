@@ -15,10 +15,12 @@ import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
 import { css } from '@emotion/css';
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);
- 
+  const router = useRouter();
+  const isHomepage = router.asPath === '/';
   const mainRef = useRef(null)
   const mouseFollowerRef = useRef(null)
   const designScrollRef = useRef(null)
@@ -45,6 +47,8 @@ export default function Home() {
     mainRef.current.addEventListener('mousemove', handleMouseMove)
 
     return () => {
+      if(!isHomepage) return;
+      console.log(isHomepage)
       mainRef.current.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])

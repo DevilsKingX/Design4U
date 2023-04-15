@@ -1,6 +1,7 @@
 import styles from '../components/navbar.module.css'
 import D4ULogo from '../../public/Design4U.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
 export default function Navbar(){
 return(
@@ -13,7 +14,13 @@ return(
             </div>   
         </div>
         
-        <div className={styles.D4ULogo}><div className={styles.logoOverlay}><a href='/'><div className={styles.logoOverlay}></div></a></div></div>
+        <div className={styles.D4ULogo}>
+  <div className={styles.logoOverlay}>
+    <Link href="/">
+        <div className={styles.logoOverlay}></div>
+    </Link>
+  </div>
+</div>
         <div className={styles.rightWing}>
         <a href='https://discord.gg/design4u' target="_blank" rel="noreferrer"><div className={styles.joinNow}>
                 JOIN NOW

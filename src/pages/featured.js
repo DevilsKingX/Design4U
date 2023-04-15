@@ -3,10 +3,13 @@ import Navbar from '@/components/navbar'
 import {BsBehance,BsTwitter,BsGlobe2,BsInstagram,BsYoutube} from 'react-icons/bs'
 import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
+import { useRouter } from 'next/router';
 import {useState,useRef,useEffect} from 'react'
 import { animation } from 'polished';
 export default function Featured() {
     const [loading,setLoading]=useState(true);
+    const router = useRouter();
+    const isHomepage = router.asPath === '/';
     const [mainBanner,setMainBanner]=useState('https://media.discordapp.net/attachments/880157787513053214/881104508422328370/D4UbannerSafeArea.png-3_polarr.png');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
@@ -65,6 +68,7 @@ export default function Featured() {
     //useEffect with function to add styles.changeBannerAnim class to mainBannerRef.current every 5 second and change the mainBanner to next in series after 1 second of adding class
     useEffect(()=>{
         const interval=setInterval(()=>{
+            if(isHomepage) return;
             const targetArray = ({image:mainBanner, color:[theme[0], theme[1], theme[2]]});
             const index = mainBanners.findIndex(banner => (banner.image) === targetArray.image);
             console.log(index)
