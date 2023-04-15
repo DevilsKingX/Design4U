@@ -48,7 +48,6 @@ export default function Home() {
 
     return () => {
       if(!isHomepage) return;
-      console.log(isHomepage)
       mainRef.current.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
