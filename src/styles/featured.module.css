@@ -1,0 +1,441 @@
+@keyframes background-pan {
+
+    from{
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+    
+}
+
+.featured{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 4s linear;
+}
+
+.featured div{
+    transition: all 4s linear;
+}
+.featuredBanner{
+    transition: all 300ms linear!important;
+}
+.featuredBanner div{
+    transition: all 300ms linear;
+}
+.featuredTitle{
+    align-self: center;
+    font-size: 48px;
+    font-weight: 800;
+    text-decoration: underline;
+    padding-top: 50px;
+    margin-bottom: 30px;
+    color: rgba(var(--primary-theme), 0.8);
+    text-decoration: none;
+    z-index: 2;
+    justify-self: center;
+    transition: all 4s linear;
+}
+
+.featuredBanners{
+    width: 98%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 20px;
+    position: relative;
+    transition: all 4s linear;
+}
+
+.featuredBanner{
+    align-self: center;
+    width: 100%;
+    max-width: 1440px;
+    aspect-ratio: 3/1;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 10px;
+    position: relative;
+    background-size:cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all 4s linear;
+    
+}
+
+
+@keyframes bannerChange {
+   0%{
+        background-position: 0% center;
+        opacity: 0;
+    }
+
+    50% {
+        background-position: 55% center;
+        opacity: 1;
+    }
+
+    100%{
+        background-position: 100% center;
+        opacity: 0;
+   }
+}
+
+
+.featuredBannerOverlay{
+    opacity: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(130deg,transparent 0% 10%,rgba(var(--theme-lightshade),1) 44%,rgba(var(--theme-darkshade),1) 55%,rgba(var(--primary-theme),1) 66%,transparent 100%);
+    background-size: 300%;
+    background-position: 0 0;
+    
+}
+
+.featuredBannerOverlay2{
+    opacity: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(130deg,transparent 0% 10%,rgba(var(--theme-lightshadeN),1) 44%,rgba(var(--theme-darkshadeN),1) 55%,rgba(var(--primary-themeN),1) 66%,transparent 100%);
+    background-size: 300%;
+    background-position: 0 0;
+    
+}
+
+@keyframes prevAnimation {
+    0%{
+        opacity: 0;
+    }
+     25%{
+        opacity: 1;
+     }
+     50%{
+        opacity: 0;
+     }
+
+}
+
+@keyframes primAnimation {
+    0%{
+        opacity: 1;
+    }
+     25%{
+        opacity: 0;
+     }
+     50%{
+        opacity: 1;
+     }
+
+}
+
+.overlayContainerPrev{
+    opacity: 0;
+    animation: prevAnimation 4s linear;
+}
+
+.overlayContainerPrim{
+    opacity: 1;
+    animation: primAnimation 4s linear;
+    
+}
+.bannerChangeAnim{
+    animation: bannerChange 4s linear;
+}
+
+@keyframes particleAnimation {
+    0%{
+        background-position: 0% 0%;
+        opacity: 0;
+    }
+
+    50% {
+        background-position: 3.5% 0%;
+        opacity: 1;
+    }
+
+    100%{
+        background-position: 3.5% 14%;
+        opacity: 0;
+   }
+}
+
+@keyframes particleAnimation2 {
+    0%{
+        background-position: 3.5% 14%;
+        opacity: 0;
+    }
+
+    50% {
+        background-position: 0% 14%;
+        opacity: 1;
+    }
+
+    100%{
+        background-position: 0% 0%;
+        opacity: 0;
+   }
+}
+
+.overlayParticles{
+    background:radial-gradient(rgba(255,255,255,0.2) 2%,transparent 4%);
+    background-position: 0% 0%;
+    background-size: 80px 80px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+.particleAnim{
+    animation: particleAnimation 4s linear;
+}
+
+.overlayParticles2{
+    background:radial-gradient(rgba(255,255,255,0.2)  2%,transparent 4%);
+    background-position: 3.5% 14%;
+    background-size: 80px 80px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+.particleAnim2{
+    animation: particleAnimation2 4s linear;
+}
+
+.logoOverlay{
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    z-index: 4;
+    opacity: 0.4;
+    mask-image: url(../../public/Design4U.svg);
+    mask-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -50%);
+}
+
+.D4ULogo{
+    width:188px;
+    height:188px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+@keyframes logoAnimation {
+    30%{
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    70%{
+        opacity: 0;
+   }
+}
+
+.logoAnim{
+    animation: logoAnimation 4s linear;
+}
+
+.featuredContent{
+    width: 100%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.featuredElement{
+    margin-top: 20px;
+    width: 98%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.featBanner{
+    width: 98vw;
+    max-width: 1440px;
+    aspect-ratio: 15/1;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    background-size:cover;
+    background-position: center;
+    position: relative;
+    align-self: center;
+    transition: all 0.3s ease-in-out;
+    background-size: 120%;
+}
+
+.featuredElement:hover .featBanner{
+    background-size: 100%;
+    background-position: center;
+    aspect-ratio: 10/1;
+}
+
+.featContent{
+    z-index: 1;
+    margin: 0px 20px;
+}
+
+.featTitle{
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.featDivision{
+    display: flex;
+    margin: 20px;
+}
+
+.featAv{
+    min-width: 100px;
+    max-height: 100px;
+    aspect-ratio: 1/1;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 50%;
+    background-size:cover;
+    background-position: center;
+    
+}
+
+.featTitleandTags{
+    display:flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.featTags{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.featTag{
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 10px;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 20px;
+    padding: 5px 10px 5px 7px;
+}
+
+.featDescription{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+}
+
+.featLongDescription{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+    transition: all 3s linear;
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.featLongDescription span{
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    
+}
+.featuredElement:hover .featLongDescription{
+    max-height: 500px;
+}
+.featInteractions{
+    min-width: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.featButton{
+    background-color: rgba(var(--primary-theme), 0.1);
+    border: 1px solid rgba(var(--primary-theme), 0.8);
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.featButton:hover{
+    background-color: rgba(var(--primary-theme), 0.2);
+    border: 1px solid rgba(var(--primary-theme), 0.9);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.featSocials{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: rgba(var(--primary-theme), 0.1);
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    font-weight: 200;
+    width: 100%;
+    justify-content: center;
+    cursor:default;
+}
+
+.featSocial{
+    display: flex;
+    align-items: center;
+    font-weight: 200;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.featSocial:hover{
+    background-color: rgba(var(--primary-theme), 0.2);
+    color: rgba(255, 255, 255, 1);
+}
+

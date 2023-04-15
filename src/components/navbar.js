@@ -7,17 +7,17 @@ return(
     <div className={styles.navbar}>
         <div className={styles.rightWing}>
             <div className={styles.socials}>
-                <i><BsTwitter/></i>
-                <i><BsInstagram/></i>
-                <i><BsDiscord/></i>
+                <a href='https://twitter.com/__design4u' target="_blank" rel="noreferrer"><i><BsTwitter/></i></a>
+                <a href='https://www.instagram.com/design4u.ig/' target="_blank" rel="noreferrer"><i><BsInstagram/></i></a>
+                <a href='https://discord.com/servers/design4u-701847935817744384' target="_blank" rel="noreferrer"><i><BsDiscord/></i></a>
             </div>   
         </div>
         
-        <div className={styles.D4ULogo}><div className={styles.logoOverlay}></div></div>
+        <div className={styles.D4ULogo}><div className={styles.logoOverlay}><a href='/'><div className={styles.logoOverlay}></div></a></div></div>
         <div className={styles.rightWing}>
-            <div className={styles.joinNow}>
+        <a href='https://discord.gg/design4u' target="_blank" rel="noreferrer"><div className={styles.joinNow}>
                 JOIN NOW
-            </div>   
+            </div></a>
         </div>
     </div>
 )

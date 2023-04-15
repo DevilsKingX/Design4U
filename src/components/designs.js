@@ -135,7 +135,6 @@ export default function Designs(props){
     {   
         const thefile2=await getDoc(doc(database, 'stats', 'users'));
         await setUserDB(thefile2.data())
-       
     }
     
 
@@ -180,7 +179,6 @@ export default function Designs(props){
               top: parentScrollableHeight * (scrollPercent / 100),
               behavior: "smooth",
             });
-            console.log('Scrolling to '+index)
           }
         }
       }
@@ -258,7 +256,6 @@ export default function Designs(props){
                                 {Dejains[categ].map((dezign, indexj) => (
                                   
                                     <div className={styles.designComponent} key={categ+indexj}  ref={(indexj==1)?(refs[index]):null}>
-                                      <div>{console.log(index==3?indexj:'NONE')}</div>
                                     <div className={styles.design} onMouseEnter={()=> props.themeFun((dezign['theme'])?(dezign['theme']):([255,77,77,'red']))} onMouseLeave={()=> props.themeFun([255,77,77,'red'])}>
                                         <div className={styles.overlayDiv}></div>
                                         <img className={styles.designImageBackdrop} alt="Design" src={('images/designs/'+encodeURIComponent(dezign['path']))} />

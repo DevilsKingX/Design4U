@@ -8,11 +8,13 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 import { useState,useEffect, useRef } from 'react';
 import { async } from '@firebase/util';
+import AvatarFetcher from './avatarFetcher';
 
 
 export default function Stats(){
 
     const dbInstance=collection( database, 'stats');
+    const [avURL,setavURL]=useState([]);
     const initialData={
       boostCount: 20,
       memberCount: 13000,
@@ -37,10 +39,27 @@ export default function Stats(){
     
    useEffect((()=>{
       gettingStats();
-       
-
     }),[])
 
+    useEffect(()=>{
+      async function getAV()
+      {
+        var URLs=[];
+        URLs[stats.latestClient.at(0)]=await AvatarFetcher(stats.latestClient.at(0),'tag');
+        URLs[stats.latestBooster.at(0)]=await AvatarFetcher(stats.latestBooster.at(0),'tag');
+        URLs[stats.latestPaidClient.at(0)]=await AvatarFetcher(stats.latestPaidClient.at(0),'tag');
+        URLs[stats.latestMember.at(0)]=await AvatarFetcher(stats.latestMember.at(0),'tag');
+        console.log(URLs[stats.latestClient.at(0)])
+        setavURL(URLs);
+      }
+      if(stats.latestClient.at(0)!='Loading...')
+      {
+        getAV();
+      };
+      
+      
+    },[stats])
+    
 
     const myLoader = ({ src, width, quality }) => {
         return `${src}?w=${width}&q=${quality || 75}`
@@ -121,7 +140,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{memberCountRun}</div>
                 <div className={styles.latestTitle}>LATEST MEMBER:</div>
                 <div className={styles.latestContainer} >
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestMember.at(1)} width={30} height={30} alt="Member"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestMember.at(1) || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Member"/>
                     <div>{stats.latestMember.at(0)}</div>
                 </div>
             </div>
@@ -130,7 +149,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{ticketCountRun}</div>
                 <div className={styles.latestTitle}>LATEST CLIENT:</div>
                 <div className={styles.latestContainer}>
-                  <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestClient.at(1)} width={30} height={30} alt="Client"/>
+                  <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestClient.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestClient.at(0)}</div>
                 </div>
             </div>
@@ -139,7 +158,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{boostCountRun}</div>
                 <div className={styles.latestTitle}>LATEST BOOSTER:</div>
                 <div className={styles.latestContainer}>
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestBooster.at(1)} width={30} height={30} alt="Client"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestBooster.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestBooster.at(0)}</div>
                 </div>
             </div>
@@ -148,7 +167,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{paidTicketCountRun}</div>
                 <div className={styles.latestTitle}>LATEST PAID CLIENT:</div>
                 <div className={styles.latestContainer}>
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestPaidClient.at(1)} width={30} height={30} alt="Client"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestPaidClient.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestPaidClient.at(0)}</div>
                 </div>
             </div>

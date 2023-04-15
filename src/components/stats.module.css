@@ -67,6 +67,7 @@
     border-radius: 25px;
     align-self: center;
     border: 1px solid rgba(var(--primary-underline), 1);;
+    overflow: hidden;
 }
 
 .latestContainer div{
