@@ -141,9 +141,8 @@ export default function Featured() {
                 {featuredItems.map((item,index)=>{
                         return(
                             <div className={styles.featuredElement} key={index}>
-                                <div className={styles.featBanner} style={{backgroundImage:`url(${item.banner})`}}></div>
+                                <div className={styles.featBanner} style={{backgroundImage:`url(${item.banner})`}}><div className={styles.featAv} style={{backgroundImage:`url(${item.icon})`}}></div></div>
                                 <div className={styles.featDivision}>
-                                <div className={styles.featAv} style={{backgroundImage:`url(${item.icon})`}}></div>
                                 <div className={styles.featContent}>
                                 <div className={styles.featTitleandTags}>
                                 <div className={styles.featTitle}>{item.title}</div>
@@ -182,31 +181,7 @@ export default function Featured() {
                                 </div>
                             </div>
                         )})}
-                <div className={styles.featuredElement}>
-                    <div className={styles.featBanner} style={{backgroundImage:'url(https://cdn.discordapp.com/attachments/921012751181156432/945366265604767794/Graphics_Guide_Banner_Blueish.gif)'}}></div>
-                    <div className={styles.featDivision}>
-                    <div className={styles.featAv} style={{backgroundImage:'url(https://cdn.discordapp.com/attachments/921012751181156432/944156675399647282/Graphics_Guide_icon.png)'}}></div>
-                    <div className={styles.featContent}>
-                    <div className={styles.featTitleandTags}>
-                    <div className={styles.featTitle}>Graphics Guide</div>
-                    <div className={styles.featTags}><div className={styles.featTag}>◈ Affliated</div></div>
-                    </div>
-                    <div className={styles.featDescriptions}>
-                    <div className={styles.featDescription}>Graphics Guide is server for learning FX of your choice on Device of your choice with softwares, you guessed it, of your choice. Beri Short Description.</div>
-                    <div className={styles.featLongDescription}><span>・┈━━━━━━⋅•⋅∘∘⋅•⋅━━━━━━┈・<br/>Graphics Guide is associated with Design4U. It is created to teach you GFX & VFX on different platforms (iOS, Android and PC). You’ll learn through simple, easy-to-learn video tutorials and hands-on exercises. Graphics Guide isn’t new. We’ve been here for almost 2 years, and today we offer more tutorials than ever.<br/>・┈━━━━━━⋅•⋅∘∘⋅•⋅━━━━━━┈・<br/>Softwares/Apps that you will learn here:<br/>◆ PS Touch<br/>◆ Ibis Paint X<br/>◆ Photoshop<br/>◆ Adobe Illustrator<br/>◆ Luma Fusion<br/>◆ Alight Motion<br/>◆ After Affects<br/>◆ Premiere Pro<br/>┈━━━━━━⋅•⋅∘∘⋅•⋅━━━━━━┈・<br/>More softwares/apps can be added anytime.</span></div>
-                    </div>
-                    </div>
-                    
-                    <div className={styles.featInteractions}>
-                    <div className={styles.featButton}>Join Now</div>
-                    <div className={styles.featSocials}>
-                        <div className={styles.featSocial}><BsBehance /></div>|
-                        <div className={styles.featSocial}><BsTwitter /></div>|
-                        <div className={styles.featSocial}><BsGlobe2 /></div>
-                    </div>
-                    </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     )

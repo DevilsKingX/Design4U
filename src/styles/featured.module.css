@@ -287,7 +287,7 @@
 .featBanner{
     width: 98vw;
     max-width: 1440px;
-    aspect-ratio: 15/1;
+    aspect-ratio: 8/1;
     background-color: rgba(var(--primary-theme), 0.1);
     border: 1px solid rgba(var(--primary-theme), 0.8);
     background-size:cover;
@@ -329,6 +329,10 @@
     border-radius: 50%;
     background-size:cover;
     background-position: center;
+    position: absolute;
+    top:100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     
 }
 
@@ -391,6 +395,10 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
+.featInteractions a{
+    width: 100%;
+}
+
 .featButton{
     background-color: rgba(var(--primary-theme), 0.1);
     border: 1px solid rgba(var(--primary-theme), 0.8);
@@ -439,3 +447,192 @@
     color: rgba(255, 255, 255, 1);
 }
 
+@media only screen and (max-width: 600px) {
+    .featuredTitle{
+        font-size: 30px;
+        padding-top: 10px;
+    }
+
+    .featuredContent{
+        width: 90%;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .featuredElement{
+        margin-top: 20px;
+        width: 98%;
+        max-width: 1440px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .featBanner{
+        width: 98vw;
+        max-width: 1440px;
+        aspect-ratio: 5/1;
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
+        background-size:cover;
+        background-position: center;
+        position: relative;
+        align-self: center;
+        transition: all 0.3s ease-in-out;
+        background-size: 120%;
+    }
+    
+    .featuredElement:hover .featBanner{
+        background-size: 100%;
+        background-position: center;
+        aspect-ratio: 10/1;
+    }
+    
+    .featContent{
+        z-index: 1;
+        margin: 0px 0px;
+    }
+    
+    .featTitle{
+        font-size: 18px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .featDivision{
+        display: flex;
+        margin: 20px;
+        flex-direction: column;
+    }
+    
+    .featAv{
+        min-width: 50px;
+        position: absolute;
+        max-height: 50px;
+        aspect-ratio: 1/1;
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
+        border-radius: 50%;
+        background-size:cover;
+        background-position: center;
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        
+    }
+    
+    .featTitleandTags{
+        display:flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .featTags{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+    }
+    
+    .featTag{
+        font-size: 10px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+        margin-right: 10px;
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
+        border-radius: 20px;
+        padding: 2.5px 7.5px 3px 5.5px;
+    }
+    
+    .featDescription{
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 10px;
+    }
+    
+    .featLongDescription{
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 10px;
+        transition: all 3s linear;
+        max-height: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .featLongDescription span{
+        overflow: hidden;
+        transition: all 1s ease-in-out;
+        
+    }
+    .featuredElement:hover .featLongDescription{
+        max-height: 500px;
+    }
+    .featInteractions{
+        min-width: 10%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .featButton{
+        background-color: rgba(var(--primary-theme), 0.1);
+        border: 1px solid rgba(var(--primary-theme), 0.8);
+        border-radius: 20px;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .featButton:hover{
+        background-color: rgba(var(--primary-theme), 0.2);
+        border: 1px solid rgba(var(--primary-theme), 0.9);
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .featSocials{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        background-color: rgba(var(--primary-theme), 0.1);
+        border-radius: 20px;
+        padding: 10px 20px 10px 20px;
+        font-weight: 200;
+        width: 100%;
+        justify-content: center;
+        cursor:default;
+    }
+    
+    .featSocial{
+        display: flex;
+        align-items: center;
+        font-weight: 200;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        padding: 5px 5px;
+        border-radius: 5px;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+    }
+    
+    .featSocial:hover{
+        background-color: rgba(var(--primary-theme), 0.2);
+        color: rgba(255, 255, 255, 1);
+    }
+
+
+  }
