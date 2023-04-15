@@ -551,14 +551,14 @@
     }
     
     .featDescription{
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         color: rgba(255, 255, 255, 0.6);
         margin-top: 10px;
     }
     
     .featLongDescription{
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         color: rgba(255, 255, 255, 0.6);
         margin-top: 10px;
@@ -591,10 +591,12 @@
         border: 1px solid rgba(var(--primary-theme), 0.8);
         border-radius: 20px;
         padding: 10px 20px;
-        width: 100%;
+        width: 50%;
         text-align: center;
+        margin: auto;
         cursor: pointer;
         margin-top: 10px;
+        font-size: 12px;
     }
     
     .featButton:hover{
@@ -606,14 +608,17 @@
     .featSocials{
         display: flex;
         align-items: center;
+        margin: auto;
         margin-top: 10px;
         background-color: rgba(var(--primary-theme), 0.1);
         border-radius: 20px;
         padding: 10px 20px 10px 20px;
         font-weight: 200;
-        width: 100%;
+        width: 50%;
+        
         justify-content: center;
         cursor:default;
+        font-size: 12px;
     }
     
     .featSocial{
