@@ -20,10 +20,10 @@ export default function Stats(){
       memberCount: 13000,
       paidOrderCount:2000,
       totalTicketCount:2000,
-      latestClient:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestBooster:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestPaidClient:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestMember:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestClient:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestBooster:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestPaidClient:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestMember:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
       
     }
 
@@ -140,7 +140,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{memberCountRun}</div>
                 <div className={styles.latestTitle}>LATEST MEMBER:</div>
                 <div className={styles.latestContainer} >
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestMember.at(1) || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Member"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={stats.latestMember.at(1) || 'https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Member"/>
                     <div>{stats.latestMember.at(0)}</div>
                 </div>
             </div>
@@ -149,7 +149,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{ticketCountRun}</div>
                 <div className={styles.latestTitle}>LATEST CLIENT:</div>
                 <div className={styles.latestContainer}>
-                  <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestClient.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
+                  <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestClient.at(0)] || 'https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestClient.at(0)}</div>
                 </div>
             </div>
@@ -158,7 +158,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{boostCountRun}</div>
                 <div className={styles.latestTitle}>LATEST BOOSTER:</div>
                 <div className={styles.latestContainer}>
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestBooster.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestBooster.at(0)] || 'https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestBooster.at(0)}</div>
                 </div>
             </div>
@@ -167,7 +167,7 @@ useEffect(() => {
                 <div className={styles.statCount}>{paidTicketCountRun}</div>
                 <div className={styles.latestTitle}>LATEST PAID CLIENT:</div>
                 <div className={styles.latestContainer}>
-                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestPaidClient.at(0)] || 'https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
+                    <Image className={styles.statsProfileImg} loader={myLoader} src={avURL[stats.latestPaidClient.at(0)] || 'https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'} width={30} height={30} alt="Client"/>
                     <div>{stats.latestPaidClient.at(0)}</div>
                 </div>
             </div>

@@ -100,7 +100,7 @@ margin-bottom: 10px;
     height: 100px;
     position: relative;
     border-radius: 20px;
-    background-color: var(--theme-solid);
+    background-color: rgba(var(--primary-theme),1);
     background-size: 100px 100px;
     z-index: -1;
 
@@ -117,7 +117,7 @@ margin-bottom: 10px;
     height: 100px;
     position: relative;
     border-radius: 20px;
-    background-color: var(--theme-solid);
+    background-color: rgba(var(--primary-theme),1);
     background-size: 100px 100px;
     z-index: -1;
 
@@ -131,7 +131,7 @@ margin-bottom: 10px;
 
 .glassImage{
     background-image: url('../../public/d4uSwirl.png');
-    background-color: var(--theme-solid);
+    background-color: rgba(var(--primary-theme),1);
     width: 100px;
     height: 100px;
     background-size: 100px 100px;
@@ -224,7 +224,7 @@ margin-bottom: 10px;
 
     .glassImage{
         background-image: url('../../public/d4uSwirl.png');
-        background-color: var(--theme-solid);
+        background-color: rgba(var(--primary-theme),1);
         width: 75px;
         height: 75px;
         background-size: 75px 75px;

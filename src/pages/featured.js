@@ -5,7 +5,7 @@ import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import {useState,useRef,useEffect} from 'react'
-import { animation } from 'polished';
+import InPageNav from '@/components/inpagenav';
 export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
@@ -105,6 +105,20 @@ export default function Featured() {
         return ()=>clearInterval(interval)
     },[mainBanner])
 
+    
+  function scrollTo(refX){
+    if(refX=='designs')
+    window.location.href='/#designs';
+    else if(refX=='reviews')
+    window.location.href='/#reviews';
+    else if(refX=='price')
+    window.location.href='/#price';
+    else if(refX=='team')
+    window.location.href='/#team';
+    else if(refX=='home')
+    window.location.href='/';
+  }
+
     return(
         <div className={styles.featured} style={{ 
             '--themeR': `${theme[0]}`,
@@ -129,6 +143,7 @@ export default function Featured() {
             '--primary-themeN': 'var(--themeRn), var(--themeGn), var(--themeBn)',
           }}>
             <Navbar/>
+            <InPageNav scrollTo={scrollTo} page={'featured'}/>
             <div className={styles.featuredTitle}>FEATURED</div>
             <div className={styles.featuredBanner} style={{backgroundImage:`url(${mainBanner})`}}>
                 <div style={{opacity:0}} ref={overlayContainerRefPrev}><div className={styles.featuredBannerOverlay2} ref={mainBannerRef2}></div></div>

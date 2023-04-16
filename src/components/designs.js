@@ -262,7 +262,7 @@ export default function Designs(props){
                                         <img className={styleID[index]!='long'?styles.designImage:styles.designImageLong} alt="Design" src={('images/designs/'+encodeURIComponent(dezign['path']))} />
                                         <div className={styles.categoryName}>{categ}</div>
                                         <div className={styles.hoveredInfo}>
-                                            <img className={styles.designerAv} alt="Design" src={avURLs[dezign['userID']]||('https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
+                                            <img className={styles.designerAv} alt="Design" src={avURLs[dezign['userID']]||('https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png')}/>
                                             
                                             <div className={styles.hoveredText}>
                                             <div className={styles.designerName}>{(userDB[dezign['userID']])?(userDB[dezign['userID']]['username'].substring(0,userDB[dezign['userID']]['username'].indexOf('#'))):('Loading...')}</div>

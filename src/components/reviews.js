@@ -7,7 +7,7 @@ import { useState,useEffect,useRef } from 'react';
 import AvatarFetcher from './avatarFetcher';
 
 export default function Reviews(){
-    const defaultAV='https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png';
+    const defaultAV='https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png';
     const avTemp=[];
     const dbInstance=collection( database, 'stats');
     const initialData={
@@ -15,10 +15,10 @@ export default function Reviews(){
       memberCount: 13000,
       paidOrderCount:2000,
       totalTicketCount:2000,
-      latestClient:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestBooster:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestPaidClient:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
-      latestMember:['Loading...','https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestClient:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestBooster:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestPaidClient:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
+      latestMember:['Loading...','https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'],
       review:[
         {CAv: "https://cdn.discordapp.com/avatars/702979435481006210/b346110f5db2d224c5703850510ca763.webp?size=4096", CTag: "Ace777#3517", DAv: "https://cdn.discordapp.com/avatars/748426441716269107/7a24dc3a26d846eb5084626fac9198e2.webp?size=4096", DTag: "Orbit#9091", Desc: "Awesome design!"},
         {CAv: "https://cdn.discordapp.com/avatars/1004662221558788096/eb75e784da3389bab71a57e411e5d380.webp?size=4096", CTag: "jordan.#0625", DAv: "https://cdn.discordapp.com/avatars/387374587333181452/d7730c22d467e64b692bd074476ddffe.webp?size=4096", DTag: "LilJøny#6237", Desc: "Made exactly what I wanted in a short amount of time! Great work!"},

@@ -13,7 +13,7 @@ async function isValidImageUrl(url) {
 
 
 export default async function AvatarFetcher(id,method){
-    const defaultURL='https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png';
+    const defaultURL='https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png';
     
     const thefile=await getDoc(doc(database, 'stats', 'Main'));
     const usersdata=(thefile.data());

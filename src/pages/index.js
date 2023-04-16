@@ -11,10 +11,10 @@ import Reviews from '@/components/reviews'
 import Designs from '@/components/designs'
 import Price from '@/components/price'
 import Staff from '@/components/staff'
+import { useRouter } from 'next/router';
 import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
-import { useRouter } from 'next/router';
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);
@@ -62,7 +62,28 @@ export default function Home() {
     window.scrollTo({top: priceScrollRef.current.offsetTop,behavior: 'smooth'});
     else if(refX=='team')
     window.scrollTo({top: teamScrollRef.current.offsetTop,behavior: 'smooth'});
+    else if(refX=='featured')
+    window.location.href='/featured';
+    
   }
+
+  useEffect(() => {
+    console.log('Reloaded ? '+window.performance.navigation.type)
+    console.log('Referrer: '+document.referrer)
+    console.log('Location: '+window.location.href)
+    if(window.performance.navigation.type==1 || document.referrer === window.location.href) return;
+    // Check if the route has a hash fragment of "#designs"
+    if (router.asPath.endsWith('#designs')) 
+      window.scrollTo({top: designScrollRef.current.offsetTop,behavior: 'smooth'});
+    else if (router.asPath.endsWith('#reviews')) 
+      window.scrollTo({top: reviewScrollRef.current.offsetTop,behavior: 'smooth'});
+    else if (router.asPath.endsWith('#price')) 
+        window.scrollTo({top: priceScrollRef.current.offsetTop,behavior: 'smooth'});
+    else if (router.asPath.endsWith('#team')) 
+          window.scrollTo({top: teamScrollRef.current.offsetTop,behavior: 'smooth'});
+
+    
+  }, []);
   return (
     <>
     
@@ -95,7 +116,7 @@ export default function Home() {
         <div className={styles.Hero}>
           <div className={styles.heroContent}>
             <Navbar/>
-            <InPageNav scrollTo={scrollTo}/>
+            <InPageNav scrollTo={scrollTo} page='main'/>
             <Heading themeVar={theme}/>
             <Stats/>
           </div>
@@ -103,7 +124,7 @@ export default function Home() {
         </div>
         <PaymentOptions/>
         <div className={styles.closureDiv} ref={reviewScrollRef}><Reviews/></div>
-        <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme}/></div>
+        <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme} id="designs"/></div>
         <div className={styles.closureDiv} ref={priceScrollRef}><Price/></div>
         <div className={styles.closureDiv} ref={teamScrollRef}><Staff  themeVar={theme} themeFun={setTheme}/></div>
         <Leaderboard/>

@@ -240,7 +240,7 @@
     --themeR:255;
     --themeG:255;
     --themeB:255;
-    --theme-solid:red;
+    --primary-theme:red;
     --primary-theme: var(--themeR), var(--themeG), var(--themeB);
   --circle-color: var(--themeR), calc(var(--themeG) * 0.7), calc(var(--themeB) * 0.7);
   --background-color: calc(var(--themeR) * 0.0784), calc(var(--themeG) * 0.091), calc(var(--themeB) * 0.091);

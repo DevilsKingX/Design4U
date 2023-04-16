@@ -86,6 +86,9 @@
     align-self: center;
     border: 1px solid rgba(var(--primary-underline), 1);
     margin-right: 10px;
+    background-image: url(https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png);
+    background-size: cover;
+    background-position: center;
 }
 
 .reviewValue{

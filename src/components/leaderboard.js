@@ -32,8 +32,9 @@ export default function Leaderboard(){
         urls[designer]=await AvatarFetcher(designer,'id');
     })
     Promise.all(promises).then(()=>{setAvURLs(urls)
+        console.log(urls)
   });
- }),[stats,DLB])
+ }),[stats])
 
 
 
@@ -46,7 +47,7 @@ export default function Leaderboard(){
                 return (
                     <div key={designer+i} className={styles.lbMember}>
                         <div className={styles.ranking}>#{i+1}</div>
-                        <div style={{backgroundImage:`url(${(avURLs[designer])?(avURLs[designer]):('https://i.ibb.co/TLnDJn6/f90e3b84998242ab4f1dbb354ab989cb.png')})`}} className={styles.memberImg}></div>
+                        <img src={(avURLs[designer])||('https://i.ibb.co/TLnDJn6/f90e3b84998242ab4f1dbb354ab989cb.png')} className={styles.memberImg}></img>
                         <div className={styles.username}>{(userDB[designer]?userDB[designer]['username']:'Database Issue... Will be updated soon.')}</div>
                         <div className={styles.socials}>
                             {(userDB[designer])?(

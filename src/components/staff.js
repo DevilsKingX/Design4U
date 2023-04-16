@@ -6,7 +6,7 @@ import AvatarFetcher from './avatarFetcher';
 import {app, database, storage} from '../firebaseCongif';
 import { collection, getDoc, doc } from 'firebase/firestore';
 export default function Staff(props){
-    const defaultAV='https://cdn.discordapp.com/avatars/723731923968720948/f90e3b84998242ab4f1dbb354ab989cb.png';
+    const defaultAV='https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png';
     const [staffs,setStaffs]=useState(['664903359693586451']);
     const [staffInfo,setStaffInfo]=useState(
         {
@@ -88,7 +88,7 @@ export default function Staff(props){
             {
                     (staffs).map((rev,i)=>(
                     <div className={(staffInfo[rev]['roles'].includes(currentRole) || currentRole=='')?(`${styles.member}`):(`${styles.member} ${styles.grayscale}`)} key={rev}>
-                    <img src={avURLs[rev]} className={styles.avatar}></img>
+                    <img src={avURLs[rev] || 'https://i.ibb.co/XVzcCMn/f90e3b84998242ab4f1dbb354ab989cb.png'} className={styles.avatar}></img>
                     <div className={styles.banner}>{(staffInfo[rev]['banner'])?(<><div className={styles.tint}></div><img src={staffInfo[rev]['banner']}></img></>):('')}</div>
                     <div className={styles.blankSpace}></div>
                     <div className={styles.memberBody}>
