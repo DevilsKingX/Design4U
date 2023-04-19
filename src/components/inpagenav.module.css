@@ -20,9 +20,18 @@
 
 .navigationMenu span{
     color: rgba(var(--primary-theme),1);
+    font-size: 12px;
 }
 
 .navivationCategory:hover{
     color: rgba(233, 54, 54, 0.8);
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .navigationMenu{
+        font-size: 14px;
+        text-align: center;
+    }
+  }

@@ -15,6 +15,7 @@ import { useRouter } from 'next/router';
 import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
+import {HiShoppingBag} from 'react-icons/hi'
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);
@@ -126,6 +127,25 @@ export default function Home() {
         <div className={styles.closureDiv} ref={reviewScrollRef}><Reviews/></div>
         <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme} id="designs"/></div>
         <div className={styles.closureDiv} ref={priceScrollRef}><Price/></div>
+        
+        <div className={styles.orderNowBannerOutline}>
+        <div className={styles.orderNowBanner}>
+          <div className={styles.orderNowArts}>
+            <div className={styles.orderNowArtsOverlay}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ibb.co/cYnCqsb/5-443919146674028586-R187-G28-B255.jpg)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ibb.co/f88kDsh/8-736115344539779072-R0-G140-B255.png)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ibb.co/nbdT8VV/20-773114093677969408-R67-G0-B255.png)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ibb.co/pbzbGLP/3-927845266671931392-R56-G255-B158.png)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ibb.co/F3mdSzF/5-387384348770566145-R0-G224-B12.png)`}}></div>
+          </div>
+          <div className={styles.orderNowBannerContent}>
+              <div className={styles.orderNowBannerHeading}>Want your own design?</div>
+              <div className={styles.orderNowBannerDescription}>We are having <span>Anniversary Discounts</span> for you!</div>
+            </div>
+          <div className={styles.orderNowButtonContainer}>
+          <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><HiShoppingBag className={styles.buyIcon}/> Order Now</div></a></div>
+        </div>
+        </div>
         <div className={styles.closureDiv} ref={teamScrollRef}><Staff  themeVar={theme} themeFun={setTheme}/></div>
         <Leaderboard/>
       </main>

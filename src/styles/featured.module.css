@@ -20,6 +20,7 @@
   left: 0;
   z-index: 1;
   transition: all 4s linear;
+  background-color: rgba(var(--background-color), alpha);
 }
 
 .featured div{
@@ -100,7 +101,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    background-image: linear-gradient(130deg,transparent 0% 10%,rgba(var(--theme-lightshade),1) 44%,rgba(var(--theme-darkshade),1) 55%,rgba(var(--primary-theme),1)) 66%,transparent 100%);
+    background-image: linear-gradient(130deg,transparent 0% 10%,rgba(var(--theme-lightshade),1) 44%,rgba(var(--theme-darkshade),1) 55%,rgba(var(--primary-theme),1) 66%,transparent 100%);
     background-size: 300%;
     background-position: 0 0;
     
