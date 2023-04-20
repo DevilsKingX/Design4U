@@ -32,6 +32,7 @@ export default function Footer() {
                     
                 </div>
         </div>
+            <div className={styles.copyright}>© 2023 <span>Design4U</span>. All Rights Reserved. </div>
         </div>
     )
 }
