@@ -40,3 +40,9 @@
         text-align: center;
     }
   }
+
+  @media only screen and (max-width: 700px) {
+    .inPage{
+        display: none;
+    }
+  }
