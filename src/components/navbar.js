@@ -2,6 +2,7 @@ import styles from '../components/navbar.module.css'
 import D4ULogo from '../../public/Design4U.svg'
 import Image from 'next/image'
 import Link from 'next/link'
+import {FaShoppingCart} from 'react-icons/fa'
 import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
 export default function Navbar(){
 return(
@@ -22,8 +23,8 @@ return(
   </div>
 </div>
         <div className={styles.rightWing}>
-        <a href='https://discord.gg/design4u' target="_blank" rel="noreferrer"><div className={styles.joinNow}>
-                JOIN NOW
+        <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.joinNow}>
+                <FaShoppingCart className={styles.shopIcon}/> ORDER NOW
             </div></a>
         </div>
     </div>

@@ -1,8 +1,13 @@
 
-.navigationMenu{
+.inPage{
     width: 95%;
-    max-width: 720px;
+    max-width: 1440px;
     align-self: center;
+    display: flex;
+}
+
+.navigationMenu{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     z-index: 2;

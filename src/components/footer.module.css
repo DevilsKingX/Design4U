@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 60px;
 }
 
 .footerContent{
@@ -27,11 +28,11 @@
     text-align: center;
 }
 .iconx{
-    background-image: url(https://i.ibb.co/WzNfRTn/image.png);
+    background-image: url(https://s12.gifyu.com/images/a_a9e1993656df85cb1814341eeda2af41.gif);
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 1px solid rgba(var(--primary-theme),0.6);
     width: 50px;
     height: 50px;
     margin-bottom: 10px;

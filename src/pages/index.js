@@ -15,7 +15,8 @@ import { useRouter } from 'next/router';
 import Leaderboard from '@/components/leaderboard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState,useEffect,useRef } from 'react';
-import {HiShoppingBag} from 'react-icons/hi'
+import {FaShoppingCart} from 'react-icons/fa'
+import {GiBookCover} from 'react-icons/gi'
 import Footer from '@/components/footer'
 
 export default function Home() {
@@ -66,6 +67,9 @@ export default function Home() {
     window.scrollTo({top: teamScrollRef.current.offsetTop,behavior: 'smooth'});
     else if(refX=='featured')
     window.location.href='/featured';
+    else if(refX=='contact')
+    window.open('https://discord.com/channels/701847935817744384/733874592786939906', '_blank');
+
     
   }
 
@@ -126,10 +130,6 @@ export default function Home() {
           <div className={styles.heroOverlay}></div>
         </div>
         <PaymentOptions/>
-        <div className={styles.closureDiv} ref={reviewScrollRef}><Reviews/></div>
-        <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme} id="designs"/></div>
-        <div className={styles.closureDiv} ref={priceScrollRef}><Price/></div>
-        
         <div className={styles.orderNowBannerOutline}>
         <div className={styles.orderNowBanner}>
           <div className={styles.orderNowArts}>
@@ -145,11 +145,34 @@ export default function Home() {
               <div className={styles.orderNowBannerDescription}>We are having <span>Anniversary Discounts</span> for you!</div>
             </div>
           <div className={styles.orderNowButtonContainer}>
-          <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><HiShoppingBag className={styles.buyIcon}/> Order Now</div></a></div>
+          <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><FaShoppingCart className={styles.buyIcon}/> Order Now</div></a></div>
         </div>
         </div>
+        <div className={styles.closureDiv} ref={reviewScrollRef}><Reviews/></div>
+        <div className={styles.closureDiv} ref={designScrollRef}><Designs themeVar={theme} themeFun={setTheme} id="designs"/></div>
+        <div className={styles.closureDiv} ref={priceScrollRef}><Price/></div>
+        
+        
         <div className={styles.closureDiv} ref={teamScrollRef}><Staff  themeVar={theme} themeFun={setTheme}/></div>
         <Leaderboard/>
+        <div className={styles.orderNowBannerOutline}  onMouseEnter={()=> setTheme([255,102,255,'pink'])} onMouseLeave={()=> setTheme([255,77,77,'red'])}>
+        <div className={styles.orderNowBanner}>
+          <div className={styles.orderNowArts}>
+            <div className={styles.orderNowArtsOverlay}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i.ytimg.com/vi/oU66yuUVOvc/maxresdefault.jpg)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://cdn.discordapp.com/attachments/853096556223791108/995000040173076571/unknown.png)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://media.discordapp.net/attachments/819693175416422460/1014487729851088906/IMG_0385.png)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i3.ytimg.com/vi/llCq6fn5vOM/maxresdefault.jpg)`}}></div>
+            <div className={styles.orderNowArt} style={{backgroundImage:`url(https://i3.ytimg.com/vi/a7geoPYfRvU/maxresdefault.jpg)`}}></div>
+          </div>
+          <div className={styles.orderNowBannerContent}>
+              <div className={styles.orderNowBannerHeading}>Want to learn designing?</div>
+              <div className={styles.orderNowBannerDescription}>What are you waiting for? Our <span>Tutorials, Tasks, Badges</span> are waiting for you!</div>
+            </div>
+          <div className={styles.orderNowButtonContainer}>
+          <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><GiBookCover className={styles.buyIcon}/> Start Learning</div></a></div>
+        </div>
+        </div>
         <Footer/>
       </main>
       

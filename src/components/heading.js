@@ -22,7 +22,11 @@ export default function Heading(props){
   return (
     <>
       <div className={styles.Heading} ref={ref}>
-        <div className={styles.largeText}>YOUR GO-TO STOP FOR <span>DESIGNS</span>.</div>
+        <div className={styles.leftSide}>
+          <div className={styles.largeText}>YOUR GO-TO STOP FOR <span>DESIGNS</span>.</div>
+          <div className={styles.joinButton}>JOIN NOW</div>
+
+        </div>
         
             <div className={styles.glassInfo}>
               <div className={styles.glass}>
