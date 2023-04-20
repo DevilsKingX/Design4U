@@ -1,0 +1,80 @@
+.footer{
+    width: 100%;
+    background-color: rgba(var(--theme-darkshade), 0.2);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent{
+    width: 98vw;
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  
+    column-gap: 10px;
+    font-size: 14px;
+    margin: 20px;
+    color: rgba(255,255,255, 0.8);
+}
+
+.footerLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.iconx{
+    background-image: url(https://i.ibb.co/WzNfRTn/image.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.6);
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    align-self: center;
+    justify-items: center;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.categ{
+    margin-bottom: 3px;
+    transition: all 200ms ease;
+}
+
+.categ:hover{
+    color: rgba(var(--primary-theme), 1);
+    
+    letter-spacing: 1px;
+}
+
+.categIcon{
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 480px) {
+    .footerContent{
+        font-size: 10px;
+    }
+    .title{
+        font-size: 14px;
+    }
+
+    .categIcon{
+        font-size: 12px;
+        margin-right: 2px;
+    }
+
+    .iconx{
+        width: 40px;
+        height: 40px;
+    }
+
+}
