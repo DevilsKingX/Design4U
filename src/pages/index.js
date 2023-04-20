@@ -18,6 +18,7 @@ import { useState,useEffect,useRef } from 'react';
 import {FaShoppingCart} from 'react-icons/fa'
 import {GiBookCover} from 'react-icons/gi'
 import Footer from '@/components/footer'
+import MobileNav from '@/components/mobileNav'
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);
@@ -90,6 +91,8 @@ export default function Home() {
 
     
   }, []);
+
+  const [isMobileNavOpen,setIsMobileNavOpen]=useState(false);
   return (
     <>
     
@@ -120,9 +123,11 @@ export default function Home() {
   '--glass-theme': 'calc(var(--themeR)*1.3),calc(var(--themeG)*1.3),calc(var(--themeB)*1.3)'
 }}>
       <div className={styles.mouseFollower} ref={mouseFollowerRef}></div>
+      <MobileNav scrollTo={scrollTo} page='main' isOpen={isMobileNavOpen} Open={setIsMobileNavOpen}/>
         <div className={styles.Hero}>
           <div className={styles.heroContent}>
-            <Navbar/>
+            
+            <Navbar MobileOpen={setIsMobileNavOpen}/>
             <InPageNav scrollTo={scrollTo} page='main'/>
             <Heading themeVar={theme}/>
             <Stats/>

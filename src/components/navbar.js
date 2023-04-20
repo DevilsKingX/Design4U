@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {FaShoppingCart} from 'react-icons/fa'
 import {BsTwitter,BsInstagram,BsFacebook, BsDiscord} from 'react-icons/bs'
-export default function Navbar(){
+import { GiHamburgerMenu } from 'react-icons/gi'
+export default function Navbar(props){
 return(
     <div className={styles.navbar}>
         <div className={styles.rightWing}>
@@ -24,8 +25,10 @@ return(
 </div>
         <div className={styles.rightWing}>
         <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.joinNow}>
-                <FaShoppingCart className={styles.shopIcon}/> ORDER NOW
+                <FaShoppingCart className={styles.shopIcon}/><span>ORDER NOW</span> 
             </div></a>
+
+        <GiHamburgerMenu className={styles.mobileNavigation} onClick={()=>{props.MobileOpen(true);console.log('Clicked!')}}/>
         </div>
     </div>
 )

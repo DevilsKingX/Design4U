@@ -1,7 +1,7 @@
 import styles from './footer.module.css'
 import {BsMegaphoneFill } from 'react-icons/bs'
 import {BiCalendarEvent,BiSupport} from 'react-icons/bi'
-import { FaShoppingBag } from 'react-icons/fa'
+import {FaShoppingCart} from 'react-icons/fa'
 import { BsDiscord, BsTwitter, BsInstagram, BsYoutube } from 'react-icons/bs'
 export default function Footer() {
     return (
@@ -16,7 +16,7 @@ export default function Footer() {
                     <div className={styles.categs}>
                         <a href='https://discord.com/channels/701847935817744384/713034329915261170'  target="_blank" rel="noreferrer"><div className={styles.categ}><BsMegaphoneFill className={styles.categIcon}/> Announcements</div></a> 
                         <a href='https://discord.com/channels/701847935817744384/740196432941809770'  target="_blank" rel="noreferrer"><div className={styles.categ}><BiCalendarEvent className={styles.categIcon}/> Events</div></a> 
-                        <a href='https://discord.com/channels/701847935817744384/721800053341159596'  target="_blank" rel="noreferrer"><div className={styles.categ}><FaShoppingBag className={styles.categIcon}/> Order Now</div></a> 
+                        <a href='https://discord.com/channels/701847935817744384/721800053341159596'  target="_blank" rel="noreferrer"><div className={styles.categ}><FaShoppingCart className={styles.categIcon}/> Order Now</div></a> 
                         <a href='https://discord.com/channels/701847935817744384/733874592786939906'  target="_blank" rel="noreferrer"><div className={styles.categ}><BiSupport className={styles.categIcon}/> Support</div></a> 
                     </div> 
                     </div>
