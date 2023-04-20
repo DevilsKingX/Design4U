@@ -155,7 +155,7 @@ export default function Home() {
         
         <div className={styles.closureDiv} ref={teamScrollRef}><Staff  themeVar={theme} themeFun={setTheme}/></div>
         <Leaderboard/>
-        <div className={styles.orderNowBannerOutline}  onMouseEnter={()=> setTheme([255,102,255,'pink'])} onMouseLeave={()=> setTheme([255,77,77,'red'])}>
+        <div className={styles.orderNowBannerOutline}  onMouseEnter={()=> setTheme([158,76,205,'pink'])} onMouseLeave={()=> setTheme([255,77,77,'red'])}>
         <div className={styles.orderNowBanner}>
           <div className={styles.orderNowArts}>
             <div className={styles.orderNowArtsOverlay}></div>
