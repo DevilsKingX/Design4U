@@ -28,7 +28,7 @@ return(
                 <FaShoppingCart className={styles.shopIcon}/><span>ORDER NOW</span> 
             </div></a>
 
-        <GiHamburgerMenu className={styles.mobileNavigation} onClick={()=>{props.MobileOpen(true);console.log('Clicked!')}}/>
+        <GiHamburgerMenu className={styles.mobileNavigation} onClick={()=>{props.MobileOpen(true);}}/>
         </div>
     </div>
 )

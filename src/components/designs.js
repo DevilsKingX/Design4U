@@ -13,7 +13,6 @@ const getPixels = require('get-pixels');
 const ndarray = require('ndarray');
 const axios = require('axios');
 const getImageColorPalette = async (imageUrl, numColors, colorThreshold) => {
-  console.log('Getting color palette for ' + imageUrl)
   // Load the image pixels using get-pixels library
   return new Promise((resolve, reject) => {
     getPixels(imageUrl, (err, pixels) => {
@@ -143,7 +142,6 @@ export default function Designs(props){
     useEffect((()=>{
         gettingDesigns();
         getImageColorPalette('https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/1200px-Black_colour.jpg',10,200).then((color)=>{
-            console.log(color+'x')
         })
       }),[])
 

@@ -44,7 +44,6 @@ export default async function AvatarFetcher(id,method){
             return avs[id];
         }
         else{
-            console.log('Found for '+id+' but invalid image. Updating...')
             const theqfile=await getDoc(doc(database, 'stats', 'Main'));
             const qstats=await (thefile.data());
             const queries=qstats['updateQueue'] || [];

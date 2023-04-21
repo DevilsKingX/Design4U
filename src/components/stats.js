@@ -49,7 +49,6 @@ export default function Stats(){
         URLs[stats.latestBooster.at(0)]=await AvatarFetcher(stats.latestBooster.at(0),'tag');
         URLs[stats.latestPaidClient.at(0)]=await AvatarFetcher(stats.latestPaidClient.at(0),'tag');
         URLs[stats.latestMember.at(0)]=await AvatarFetcher(stats.latestMember.at(0),'tag');
-        console.log(URLs[stats.latestClient.at(0)])
         setavURL(URLs);
       }
       if(stats.latestClient.at(0)!='Loading...')

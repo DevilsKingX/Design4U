@@ -32,7 +32,6 @@ export default function Leaderboard(){
         urls[designer]=await AvatarFetcher(designer,'id');
     })
     Promise.all(promises).then(()=>{setAvURLs(urls)
-        console.log(urls)
   });
  }),[stats])
 

@@ -56,7 +56,6 @@ export default function Home() {
   }, [])
 
   function scrollTo(refX){
-    console.log(teamScrollRef.current)
     
     if(refX=='designs')
     window.scrollTo({top: designScrollRef.current.offsetTop,behavior: 'smooth'});
@@ -75,9 +74,6 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log('Reloaded ? '+window.performance.navigation.type)
-    console.log('Referrer: '+document.referrer)
-    console.log('Location: '+window.location.href)
     if(window.performance.navigation.type==1 || document.referrer === window.location.href) return;
     // Check if the route has a hash fragment of "#designs"
     if (router.asPath.endsWith('#designs')) 

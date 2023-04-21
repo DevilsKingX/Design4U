@@ -55,16 +55,13 @@ export default function Featured() {
     },[])
 
     useEffect(()=>{
-        console.log(stats.featuredBanners)
         if(stats.featuredBanners.length>0)
         {
             setMainBanners(stats.featuredBanners)
-            console.log(stats.featuredBanners)
         }
         if(stats.featuredItems.length>0)
         {
             setFeaturedItems(stats.featuredItems)
-            console.log(stats.featuredItems)
         }
     },[stats])
 
@@ -74,7 +71,6 @@ export default function Featured() {
             if(isHomepage) return;
             const targetArray = ({image:mainBanner, color:[theme[0], theme[1], theme[2]]});
             const index = mainBanners.findIndex(banner => (banner.image) === targetArray.image);
-            console.log(index)
             setTheme([...mainBanners[(index+1)%mainBanners.length].color,'red'])
            
             overlayContainerRefPrev.current.className=`${styles.overlayContainerPrev}`
@@ -84,11 +80,9 @@ export default function Featured() {
             particle1Ref.current.className=`${styles.overlayParticles} ${styles.particleAnim}`
             particle2Ref.current.className=`${styles.overlayParticles2} ${styles.particleAnim2}`
             logoRef.current.className=`${styles.D4ULogo} ${styles.logoAnim}`
-            console.log(mainBannerRef.current.className);
             setTimeout(()=>{
                 
                 setMainBanner(mainBanners[(index+1)%mainBanners.length].image)
-                console.log([...mainBanners[(index+1)%mainBanners.length].color,'red'])
                 
                 setThemeNext([...mainBanners[(index)%mainBanners.length].color,'red'])
             },2000)
@@ -101,7 +95,6 @@ export default function Featured() {
                 overlayContainerRefPrev.current.className=``
                 overlayContainerRefPrim.current.className=``
                 logoRef.current.className=`${styles.D4ULogo}`
-                console.log(mainBannerRef.current.className);
             },4000)
             
         },7000)
@@ -222,11 +215,9 @@ export default function Featured() {
 
 function liner(str){
     
-    console.log(str.indexOf('\n'));
 
     let arr=str.split('\\n');
     let compos=arr.map((item,index)=>{
-        console.log('x'+item+'x')
         return(
             <>{(item!='')?(<div key={index}>{item}</div>):''}
             {(index!=arr.length-1 && item!='')?<br/>:''}</>
