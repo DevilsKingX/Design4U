@@ -13,7 +13,7 @@ export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
     const isHomepage = router.asPath === '/';
-    const [mainBanner,setMainBanner]=useState('https://cdn.discordapp.com/attachments/1069226595774120016/1098880136448843816/dot_poster.png');
+    const [mainBanner,setMainBanner]=useState('https://i.ibb.co/zXR91rp/D4-U-Banner.jpg');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
