@@ -15,9 +15,9 @@ export default function Footer() {
                 <div className={styles.footerCenter}>
                     <div className={styles.title}>Quick Links</div>
                     <div className={styles.categs}>
-                        <a href='https://discord.com/channels/701847935817744384/713034329915261170'  target="_blank" rel="noreferrer"><div className={styles.categ}><BsCurrencyDollar className={styles.categIcon}/> Pricing</div></a> 
-                        <a href='https://discord.com/channels/701847935817744384/740196432941809770'  target="_blank" rel="noreferrer"><div className={styles.categ}><MdWork className={styles.categIcon}/> Our Works</div></a> 
-                        <a href='https://discord.com/channels/701847935817744384/721800053341159596'  target="_blank" rel="noreferrer"><div className={styles.categ}><MdReviews className={styles.categIcon}/> Reviews</div></a> 
+                        <a href='https://discord.com/channels/701847935817744384/701860355265134644'  target="_blank" rel="noreferrer"><div className={styles.categ}><BsCurrencyDollar className={styles.categIcon}/> Pricing</div></a> 
+                        <a href='https://discord.com/channels/701847935817744384/724442274989342790'  target="_blank" rel="noreferrer"><div className={styles.categ}><MdWork className={styles.categIcon}/> Our Works</div></a> 
+                        <a href='https://discord.com/channels/701847935817744384/705202479012249631'  target="_blank" rel="noreferrer"><div className={styles.categ}><MdReviews className={styles.categIcon}/> Reviews</div></a> 
                         <a href='https://discord.com/channels/701847935817744384/733874592786939906'  target="_blank" rel="noreferrer"><div className={styles.categ}><BiSupport className={styles.categIcon}/> Contact Us</div></a> 
                     </div> 
                     </div>

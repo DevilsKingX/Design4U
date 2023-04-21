@@ -101,7 +101,7 @@ export default function Home() {
       
         <title>Design4U</title>
         <meta name="description" content="Go-To Stop for Graphic Designs" />
-        <meta property="og:image" content="https://design4u.vercel.app/images/ogimage.png" />
+        <meta property="og:image" content="https://i.ibb.co/zXR91rp/D4-U-Banner.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         
@@ -178,7 +178,7 @@ export default function Home() {
           <a href='https://discord.gg/QauMEdCK3p' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><GiBookCover className={styles.buyIcon}/> Start Learning</div></a></div>
         </div>
         </div>
-        <Footer/>
+        <Footer scrollTo={scrollTo}/>
       </main>
       
     </>
