@@ -24,7 +24,7 @@ export default function Heading(props){
       <div className={styles.Heading} ref={ref}>
         <div className={styles.leftSide}>
           <div className={styles.largeText}>YOUR GO-TO STOP FOR <span>DESIGNS</span>.</div>
-          <div className={styles.joinButton}>JOIN NOW</div>
+          <a href='https://discord.gg/design4u' target="_blank" rel="noreferrer"><div className={styles.joinButton}>JOIN NOW</div></a>
 
         </div>
         
