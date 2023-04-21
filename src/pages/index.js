@@ -175,7 +175,7 @@ export default function Home() {
               <div className={styles.orderNowBannerDescription}>What are you waiting for? Our <span>Tutorials, Tasks, Badges</span> are waiting for you!</div>
             </div>
           <div className={styles.orderNowButtonContainer}>
-          <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><GiBookCover className={styles.buyIcon}/> Start Learning</div></a></div>
+          <a href='https://discord.gg/QauMEdCK3p' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><GiBookCover className={styles.buyIcon}/> Start Learning</div></a></div>
         </div>
         </div>
         <Footer/>

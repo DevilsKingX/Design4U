@@ -115,8 +115,10 @@ export default function Price(){
 
     return(
         <>
+            
             <div className={`${styles.worksTitle}`}>PRICE LIST</div>
             <div className={styles.priceContainer}>
+                
                 
                 <div className={styles.Navigator}>
                     <div className={(activeCategory==0)?(`${styles.navigatorElement} ${styles.activeElement}`):(styles.navigatorElement)} onClick={()=> {setactiveCategory(0);checkScroll(0);checkScroll2(0);}} style={{marginLeft:'0px'}}>GFX</div>

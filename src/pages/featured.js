@@ -8,6 +8,7 @@ import {useState,useRef,useEffect} from 'react'
 import InPageNav from '@/components/inpagenav';
 import Footer from '@/components/footer'
 import MobileNav from '@/components/mobileNav'
+import Head from 'next/head';
 export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
@@ -124,6 +125,17 @@ export default function Featured() {
   const [isMobileNavOpen,setIsMobileNavOpen]=useState(false);
 
     return(
+        <>
+        <Head>
+      
+      <title>Design4U ⟡ Featured</title>
+      <meta name="description" content="Go-To Stop for Graphic Designs" />
+      <meta property="og:image" content="https://i.ibb.co/zXR91rp/D4-U-Banner.jpg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+      
+    </Head>
+        
         <div className={styles.featured} style={{ 
             '--themeR': `${theme[0]}`,
             '--themeG': `${theme[1]}`,
@@ -204,7 +216,7 @@ export default function Featured() {
                 
             </div>
             <Footer/>
-        </div>
+        </div></>
     )
 }
 
