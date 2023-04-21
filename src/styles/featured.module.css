@@ -19,12 +19,12 @@
   top: 0;
   left: 0;
   z-index: 1;
-  transition: all 4s linear;
+  transition: all 300ms linear;
   background-color: rgba(var(--background-color), alpha);
 }
 
 .featured div{
-    transition: all 4s linear;
+    transition: all 300ms linear;
 }
 .featuredBanner{
     transition: all 300ms linear!important;
@@ -594,12 +594,15 @@
         border: 1px solid rgba(var(--primary-theme), 0.8);
         border-radius: 20px;
         padding: 10px 20px;
-        width: 50%;
+        width: 100%;
         text-align: center;
-        margin: auto;
         cursor: pointer;
         margin-top: 10px;
         font-size: 12px;
+    }
+
+    .featInteractions a{
+        width: 50%;
     }
     
     .featButton:hover{

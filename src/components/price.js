@@ -68,6 +68,25 @@ export default function Price(){
         {name:'Premade Mascot Logo',available:true,ref:8,cur:6,level:10,boost:'-','longname':true},   
     ]
 
+    const disGFX=[
+        {name:'AVI',available:true,ref:5,cur:2.5,level:10,boost:1},
+        {name:'Jersey',available:true,ref:8,cur:5.8,level:10,boost:1},
+        {name:'Roster',available:true,ref:10,cur:7.3,level:15,boost:1},
+        {name:'Banner',available:true,ref:7,cur:4.9,level:10,boost:1},
+        {name:'3D Text',available:true,ref:4,cur:2,level:10,boost:1},
+        {name:'Wallpaper',available:true,ref:7,cur:4.9,level:10,boost:1},
+        {name:'Concept Logo',available:true,ref:12,cur:8.8,level:20,boost:2,'longname':true},
+        {name:'Profile Picture',available:true,ref:5,cur:3.9,level:10,boost:1,'longname':true},
+        {name:'Twitter Header',available:true,ref:7,cur:4.9,level:10,boost:1,'longname':true},
+        {name:'Stream Overlay',available:false,ref:8,cur:5.8,level:10,boost:1,'longname':true},
+        {name:'AVI With PopOut',available:true,ref:6,cur:3,level:10,boost:1,'longname':true},
+        {name:'Background Cut',available:true,ref:3,cur:1.5,level:10,boost:1,'longname':true},
+        {name:'Drip/Logo Design',available:true,ref:8,cur:5.8,level:10,boost:1,'longname':true},
+        {name:'Text Emoji',available:true,ref:3,cur:1.5,level:10,boost:1},
+        {name:'Youtube Thumbnail',available:true,ref:6,cur:4,level:10,boost:1,'longname':true},
+        {name:'Premade Mascot Logo',available:true,ref:6,cur:4,level:10,boost:'-','longname':true},   
+    ]
+
     const VFX=[
         {name:'GIF(Name)',available:true,ref:12,cur:9,level:10},
         {name:'GIF(Name+Logo)',available:true,ref:15,cur:11.5,level:10,'longname':true},
@@ -79,6 +98,19 @@ export default function Price(){
         {name:'2-Minute Montage',available:true,ref:20,cur:15,level:10,'longname':true},
         {name:'3-Minute Montage',available:true,ref:25,cur:18.75,level:10,'longname':true},
         {name:'4-Minute Montage',available:false,ref:30,cur:22.5,level:10,'longname':true},
+    ]
+
+    const disVFX=[
+        {name:'GIF(Name)',available:true,ref:8,cur:6.3,level:10},
+        {name:'GIF(Name+Logo)',available:true,ref:10,cur:7.9,level:10,'longname':true},
+        {name:'Intro(Name)',available:true,ref:8,cur:6.3,level:15},
+        {name:'Intro(Name+Logo)',available:true,ref:10,cur:7.9,level:10,'longname':true},
+        {name:'Animated Overlay',available:true,ref:12,cur:9.5,level:10,'longname':true},
+        {name:'30-Second Montage',available:true,ref:8,cur:6.3,level:10,'longname':true},
+        {name:'1-Minute Montage',available:true,ref:10,cur:7.9,level:20,'longname':true},
+        {name:'2-Minute Montage',available:true,ref:14,cur:10.5,level:10,'longname':true},
+        {name:'3-Minute Montage',available:true,ref:17,cur:13,level:10,'longname':true},
+        {name:'4-Minute Montage',available:false,ref:21,cur:15.7,level:10,'longname':true},
     ]
 
     return(
@@ -119,10 +151,10 @@ export default function Price(){
                                         </div>
                                         <div className={styles.leftArea}>
                                         <div className={styles.priceSections}>
-                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{fx['ref']}</span></div>
+                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(fx['ref']==disGFX[index]['ref'])?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disGFX[index]['ref']}</span></>}</span></div>
                                             <div className={`${styles.priceElement} ${styles.mhide}`}><span><SiSupabase className={styles.elementIcon}/>{fx['level']}</span></div>
                                             <div className={`${styles.priceElement} ${styles.mhide}`}><span><IoIosRocket className={styles.elementIcon}/>{fx['boost']}</span></div>
-                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{fx['cur']}</span></div>
+                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(fx['cur']==disGFX[index]['cur'])?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disGFX[index]['cur']}</span></>}</span></div>
                                         </div>
                                         </div>
                                         </div>)
@@ -159,8 +191,8 @@ export default function Price(){
                                         </div>
                                         <div className={styles.leftArea}>
                                         <div className={styles.priceSections}>
-                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{fx['ref']}</span></div>
-                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{fx['cur']}</span></div>
+                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(fx['ref']==disVFX[index]['ref'])?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disVFX[index]['ref']}</span></>}</span></div>
+                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(fx['cur']==disVFX[index]['cur'])?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disVFX[index]['cur']}</span></>}</span></div>
                                         </div>
                                         </div>
                                         </div>)

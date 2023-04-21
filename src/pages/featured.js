@@ -6,11 +6,13 @@ import { collection, getDoc, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import {useState,useRef,useEffect} from 'react'
 import InPageNav from '@/components/inpagenav';
+import Footer from '@/components/footer'
+import MobileNav from '@/components/mobileNav'
 export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
     const isHomepage = router.asPath === '/';
-    const [mainBanner,setMainBanner]=useState('https://astony.net/collections/astony-dot');
+    const [mainBanner,setMainBanner]=useState('https://cdn.discordapp.com/attachments/1069226595774120016/1098880136448843816/dot_poster.png');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
@@ -21,7 +23,7 @@ export default function Featured() {
     const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/0pNpxy9/image.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]}])
     const [theme,setTheme]=useState([255,77,77,'red']);
     const [animationDelay,setAnimationDelay]=useState(true);
-    const [themeNext,setThemeNext]=useState([77,77,255,'red']);
+    const [themeNext,setThemeNext]=useState([255,77,77,'red']);
     const normalItem={
         title:'Graphics Guide',
         tags:['Affliated'],
@@ -119,6 +121,8 @@ export default function Featured() {
     window.location.href='/';
   }
 
+  const [isMobileNavOpen,setIsMobileNavOpen]=useState(false);
+
     return(
         <div className={styles.featured} style={{ 
             '--themeR': `${theme[0]}`,
@@ -142,8 +146,9 @@ export default function Featured() {
             '--theme-lightshadeN': 'calc(var(--themeRn)*1.2),calc(var(--themeGn)*1.2),calc(var(--themeBn)*1.2)',
             '--primary-themeN': 'var(--themeRn), var(--themeGn), var(--themeBn)',
           }}>
-            <Navbar/>
-            <InPageNav scrollTo={scrollTo} page={'featured'}/>
+            <MobileNav scrollTo={scrollTo} page='main' isOpen={isMobileNavOpen} Open={setIsMobileNavOpen}/>
+            <Navbar MobileOpen={setIsMobileNavOpen}/>
+            <InPageNav scrollTo={scrollTo} page='main'/>
             <div className={styles.featuredTitle}>FEATURED</div>
             <div className={styles.featuredBanner} style={{backgroundImage:`url(${mainBanner})`}}>
                 <div style={{opacity:0}} ref={overlayContainerRefPrev}><div className={styles.featuredBannerOverlay2} ref={mainBannerRef2}></div></div>
@@ -170,7 +175,7 @@ export default function Featured() {
                                 </div>
                                 </div>
                                 <div className={styles.featDescriptions}>
-                                <div className={styles.featDescription}>{console.log(liner(item.description))}</div>
+                                <div className={styles.featDescription}>{liner(item.description)}</div>
                                 <div className={styles.featLongDescription}>{liner(item.longDescription)}</div>
                                 </div>
                                 </div>
@@ -198,21 +203,23 @@ export default function Featured() {
                         )})}
                 
             </div>
+            <Footer/>
         </div>
     )
 }
 
-function liner(str,current=0){
-    str=str.replaceAll('\n','\n%^&')
-    let arr=str.split('\n');
-    if(current>=arr.length) return '';
+function liner(str){
     
-    if(current!=0) return(
-        <span><br/>{arr[current].replace('%^&','')}{liner(str,current+1)}</span>
-    )
-    else{
+    console.log(str.indexOf('\n'));
+
+    let arr=str.split('\\n');
+    let compos=arr.map((item,index)=>{
+        console.log('x'+item+'x')
         return(
-            <span>{arr[current].replace('%^&','')}{liner(str,current+1)}</span>
+            <>{(item!='')?(<div key={index}>{item}</div>):''}
+            {(index!=arr.length-1 && item!='')?<br/>:''}</>
         )
-    }
+    })
+
+    return (<div>{compos}</div>)
 }

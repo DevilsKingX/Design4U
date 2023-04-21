@@ -245,9 +245,35 @@
   text-overflow: ellipsis;
 }
 
+.fxSpan{
+    margin-right: 2px;
+    color: rgba(var(--primary-theme) ,1);
+    opacity: 0.4;
+    font-weight: 600;
+    font-size: 14px;
+    align-self: center;
+    position: relative;
+    z-index: -2;
+}
+
+.fxSpan::before{
+    content: '';
+  position: absolute;
+  top: 3px;
+  left: 40%;
+  transform: translate(-50,-50%);
+  height: 3px;
+  width: 100%;
+  max-width: 15px;
+  background-color: rgba(var(--primary-theme), 0.8);
+  transform-origin: top left;
+  transform: rotate(45deg);
+ 
+}
+
 @media only screen and (max-width: 700px) {
 .longfx span{
-    animation: slide-left 4s linear infinite;
+    animation: slide-left 300ms linear infinite;
 }
 }
 .priceSections{
