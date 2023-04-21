@@ -25,15 +25,32 @@ export default function Leaderboard(){
 
  const [avURLs,setAvURLs]=useState([]);
  useEffect((()=>{
-    if(stats==null) return
+
+    async function fetchy(){
     if(DLB!=stats.designerLB) setDLB(stats.designerLB);
     let urls=[];
-    let promises=(DLB).map(async (designer,i)=>{
-        urls[designer]=await AvatarFetcher(designer,'id');
+    let promises=await (DLB).map(async (designer,i)=>{
+            urls[designer]=await AvatarFetcher(designer,'id');
+            console.log(urls[designer])
     })
-    Promise.all(promises).then(()=>{setAvURLs(urls)
-  });
- }),[stats])
+        Promise.all(promises).then(()=>{setAvURLs(urls)
+      });
+    }
+
+    
+    if(stats==null) return
+    fetchy();
+    
+ }),[DLB])
+
+ 
+
+
+ useEffect((()=>{
+    if(stats==null) return
+    if(DLB!=stats.designerLB) setDLB(stats.designerLB);
+    
+}),[stats])
 
 
 
