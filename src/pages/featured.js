@@ -13,7 +13,7 @@ export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
     const isHomepage = router.asPath === '/';
-    const [mainBanner,setMainBanner]=useState('https://i.ibb.co/zXR91rp/D4-U-Banner.jpg');
+    const [mainBanner,setMainBanner]=useState('https://i.ibb.co/wQHTS8B/dot-poster.png');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
@@ -21,10 +21,10 @@ export default function Featured() {
     const logoRef=useRef();
     const overlayContainerRefPrev=useRef();
     const overlayContainerRefPrim=useRef();
-    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/0pNpxy9/image.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]}])
-    const [theme,setTheme]=useState([255,77,77,'red']);
+    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/wQHTS8B/dot-poster.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]}])
+    const [theme,setTheme]=useState([255,202,109,'red']);
     const [animationDelay,setAnimationDelay]=useState(true);
-    const [themeNext,setThemeNext]=useState([255,77,77,'red']);
+    const [themeNext,setThemeNext]=useState([255,202,109,'red']);
     const normalItem={
         title:'Graphics Guide',
         tags:['Affliated'],
