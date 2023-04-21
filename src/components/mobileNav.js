@@ -14,6 +14,8 @@ export default function mobileNav(props){
             {(props.page=='main')?<><div className={styles.navivationCategory} onClick={()=>props.scrollTo('featured')} onTouchStart={()=>props.scrollTo('featured')}>Featured</div></>:''}
             <div className={styles.navivationCategory} onClick={()=>props.scrollTo('team')} onTouchStart={()=>props.scrollTo('team')}>Our Team</div>
             <div className={styles.navivationCategory} onClick={()=>props.scrollTo('contact')} onTouchStart={()=>props.scrollTo('team')}>Contact Us</div>
-        </div></div>
+        </div>
+        <div className={styles.theEnd}></div>
+        </div>
     )
 }
