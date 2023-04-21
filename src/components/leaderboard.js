@@ -31,7 +31,6 @@ export default function Leaderboard(){
     let urls=[];
     let promises=await (DLB).map(async (designer,i)=>{
             urls[designer]=await AvatarFetcher(designer,'id');
-            console.log(urls[designer])
     })
         Promise.all(promises).then(()=>{setAvURLs(urls)
       });
