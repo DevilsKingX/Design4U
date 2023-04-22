@@ -19,6 +19,7 @@ import {FaShoppingCart} from 'react-icons/fa'
 import {GiBookCover} from 'react-icons/gi'
 import Footer from '@/components/footer'
 import MobileNav from '@/components/mobileNav'
+import FeaturedSmall from '@/components/featuredSmall'
 
 export default function Home() {
   const [theme,setTheme]=useState([255,77,77,'red']);

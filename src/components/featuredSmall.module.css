@@ -1,0 +1,8 @@
+.featuredSmall{
+    width: 98vw;
+    max-width: 1440px;
+    align-self: center;
+    justify-content: center;
+    display:flex;
+    z-index: 2;
+}

@@ -29,6 +29,7 @@ export default function Staff(props){
         'APRICITY': 'R209G77B114',
         'PANZO': 'R161G165B248',
         'DERWESH': 'R255G255B255',
+        'ADMINSTRATOR': 'R252G1B0',
         'STAFF MANAGER': 'R223G0B0',
         'SENIOR MODERATOR': 'R255G69B107',
         'MODERATOR': 'R0G218B235',
