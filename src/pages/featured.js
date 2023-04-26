@@ -14,6 +14,7 @@ export default function Featured() {
     const router = useRouter();
     const isHomepage = router.asPath === '/';
     const [mainBanner,setMainBanner]=useState('https://i.ibb.co/wQHTS8B/dot-poster.png');
+    const [mainUrl,setMainUrl]=useState('https://astony.net/collections/astony-dot');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
@@ -21,7 +22,7 @@ export default function Featured() {
     const logoRef=useRef();
     const overlayContainerRefPrev=useRef();
     const overlayContainerRefPrim=useRef();
-    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/wQHTS8B/dot-poster.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]}])
+    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/wQHTS8B/dot-poster.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]},{image:'https://i.ibb.co/g9ZyByp/zmangnus-vagabond2.png',url:'https://zmagnus.studio',color:[75,137,106]}])
     const [theme,setTheme]=useState([255,202,109,'red']);
     const [animationDelay,setAnimationDelay]=useState(true);
     const [themeNext,setThemeNext]=useState([255,202,109,'red']);
@@ -83,9 +84,10 @@ export default function Featured() {
             setTimeout(()=>{
                 
                 setMainBanner(mainBanners[(index+1)%mainBanners.length].image)
+                setMainUrl(mainBanners[(index+1)%mainBanners.length].url)
                 
                 setThemeNext([...mainBanners[(index)%mainBanners.length].color,'red'])
-            },2000)
+            },1850)
 
             setTimeout(()=>{
                 mainBannerRef.current.className=`${styles.featuredBannerOverlay}`
@@ -155,13 +157,13 @@ export default function Featured() {
             <Navbar MobileOpen={setIsMobileNavOpen}/>
             <InPageNav scrollTo={scrollTo} page='main'/>
             <div className={styles.featuredTitle}>FEATURED</div>
-            <div className={styles.featuredBanner} style={{backgroundImage:`url(${mainBanner})`}}>
+            <a href={mainUrl} target="_blank" rel="noreferrer" className={styles.featuredA}><div className={styles.featuredBanner} style={{backgroundImage:`url(${mainBanner})`}}>
                 <div style={{opacity:0}} ref={overlayContainerRefPrev}><div className={styles.featuredBannerOverlay2} ref={mainBannerRef2}></div></div>
                 <div style={{opacity:1}} ref={overlayContainerRefPrim}><div className={styles.featuredBannerOverlay1} ref={mainBannerRef}></div></div>
                 <div className={styles.overlayParticles} ref={particle1Ref}></div>
                 <div className={styles.overlayParticles2} ref={particle2Ref}></div>
                 <div className={styles.D4ULogo} ref={logoRef}><div className={styles.logoOverlay}></div></div>
-            </div>
+            </div></a>
             <div className={styles.featuredContent}>
                 {featuredItems.map((item,index)=>{
                         return(

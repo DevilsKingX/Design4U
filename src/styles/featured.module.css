@@ -23,6 +23,11 @@
   background-color: rgba(var(--background-color), alpha);
 }
 
+.featuredA{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
 .featured div{
     transition: all 300ms linear;
 }
