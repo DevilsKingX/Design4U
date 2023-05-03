@@ -144,7 +144,7 @@ export default function Home() {
           </div>
           <div className={styles.orderNowBannerContent}>
               <div className={styles.orderNowBannerHeading}>Want your own design?</div>
-              <div className={styles.orderNowBannerDescription}>Take advantage of our <span>Anniversary Discounts</span> now!</div>
+              <div className={styles.orderNowBannerDescription}>Take advantage of our <span>Amazing Prices</span> now!</div>
             </div>
           <div className={styles.orderNowButtonContainer}>
           <a href='https://discord.com/channels/701847935817744384/721800053341159596' target="_blank" rel="noreferrer"><div className={styles.orderNowBannerButton}><FaShoppingCart className={styles.buyIcon}/> Order Now</div></a></div>

@@ -29,7 +29,7 @@
 }
 
 .navivationCategory:hover{
-    color: rgba(233, 54, 54, 0.8);
+    color: rgba(var(--primary-theme), 0.8);
     cursor: pointer;
 }
 

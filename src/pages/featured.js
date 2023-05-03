@@ -13,8 +13,8 @@ export default function Featured() {
     const [loading,setLoading]=useState(true);
     const router = useRouter();
     const isHomepage = router.asPath === '/';
-    const [mainBanner,setMainBanner]=useState('https://i.ibb.co/wQHTS8B/dot-poster.png');
-    const [mainUrl,setMainUrl]=useState('https://astony.net/collections/astony-dot');
+    const [mainBanner,setMainBanner]=useState('https://i.ibb.co/g9ZyByp/zmangnus-vagabond2.png');
+    const [mainUrl,setMainUrl]=useState('https://zmagnus.studio');
     const mainBannerRef=useRef();
     const mainBannerRef2=useRef();
     const particle1Ref=useRef();
@@ -22,8 +22,8 @@ export default function Featured() {
     const logoRef=useRef();
     const overlayContainerRefPrev=useRef();
     const overlayContainerRefPrim=useRef();
-    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/wQHTS8B/dot-poster.png',url:'https://astony.net/collections/astony-dot',color:[255,202,109]},{image:'https://i.ibb.co/g9ZyByp/zmangnus-vagabond2.png',url:'https://zmagnus.studio',color:[75,137,106]}])
-    const [theme,setTheme]=useState([255,202,109,'red']);
+    const [mainBanners,setMainBanners]=useState([{image:'https://i.ibb.co/g9ZyByp/zmangnus-vagabond2.png',url:'https://zmagnus.studio',color:[75,137,106]}])
+    const [theme,setTheme]=useState([75,137,106,'red']);
     const [animationDelay,setAnimationDelay]=useState(true);
     const [themeNext,setThemeNext]=useState([255,202,109,'red']);
     const normalItem={

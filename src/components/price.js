@@ -153,10 +153,10 @@ export default function Price(){
                                         </div>
                                         <div className={styles.leftArea}>
                                         <div className={styles.priceSections}>
-                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(fx['ref']==disGFX[index]['ref'])?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disGFX[index]['ref']}</span></>}</span></div>
+                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(true)?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disGFX[index]['ref']}</span></>}</span></div>
                                             <div className={`${styles.priceElement} ${styles.mhide}`}><span><SiSupabase className={styles.elementIcon}/>{fx['level']}</span></div>
                                             <div className={`${styles.priceElement} ${styles.mhide}`}><span><IoIosRocket className={styles.elementIcon}/>{fx['boost']}</span></div>
-                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(fx['cur']==disGFX[index]['cur'])?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disGFX[index]['cur']}</span></>}</span></div>
+                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(true)?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disGFX[index]['cur']}</span></>}</span></div>
                                         </div>
                                         </div>
                                         </div>)
@@ -193,8 +193,8 @@ export default function Price(){
                                         </div>
                                         <div className={styles.leftArea}>
                                         <div className={styles.priceSections}>
-                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(fx['ref']==disVFX[index]['ref'])?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disVFX[index]['ref']}</span></>}</span></div>
-                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(fx['cur']==disVFX[index]['cur'])?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disVFX[index]['cur']}</span></>}</span></div>
+                                            <div className={styles.priceElement}><span><AiOutlineUsergroupAdd className={styles.elementIcon}/>{(true)?(<span className={styles.fxSpanx}>{fx['ref']}</span>):<><span className={styles.fxSpan}>{fx['ref']}</span><span>{disVFX[index]['ref']}</span></>}</span></div>
+                                            <div className={styles.priceElement}><span><BsCurrencyDollar className={styles.elementIcon}/>{(true)?(<span className={styles.fxSpanx}>{fx['cur']}</span>):<><span className={styles.fxSpan}>{fx['cur']}</span><span>{disVFX[index]['cur']}</span></>}</span></div>
                                         </div>
                                         </div>
                                         </div>)
